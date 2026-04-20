@@ -1,2 +1,17 @@
 # Локальный журнал статусов (не коммитить; см. StatusProject/templates/STATUS-LOG.template.md)
 STATUS-LOG.md
+
+# Секреты и локальные env в корне репозитория (шаблоны — см. исключение ниже)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Логи и временные файлы
+*.log
+npm-debug.log*
+
+# ОС
+.DS_Store
+Thumbs.db
+Desktop.ini
