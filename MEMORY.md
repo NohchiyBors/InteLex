@@ -55,6 +55,8 @@
   - `Dockerfile`
   - `.dockerignore`
   - `docs/deploy/coolify.md`
+  - `AGENTS.md`
+  - `README.md`
 
 ## Известные ограничения
 - `KK` и `KA` пока не имеют полного собственного контента и используют fallback.
@@ -70,6 +72,8 @@
 - Stitch prompt: `docs/spec/06_stitch_prompt.md`
 - Coolify deployment note: `docs/deploy/coolify.md`
 - Dockerfile: `Dockerfile`
+- Project instructions: `AGENTS.md`
+- Repository structure overview: `README.md`
 - i18n: `interlex/src/lib/i18n.ts`
 - Service catalog data: `interlex/src/lib/services.ts`
 

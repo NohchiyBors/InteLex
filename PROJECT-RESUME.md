@@ -7,13 +7,13 @@ Session owner: `Codex`
 ## Где находимся
 - Текущая фаза: `Подготовка production deployment и выравнивание архитектуры`
 - Общий статус: `В работе`
-- Последний подтверждённый результат: `Проект подготовлен к контейнерному деплою в Coolify: добавлены standalone build, Dockerfile, .dockerignore, /api/health и env-aware metadataBase; production build проходит локально.`
+- Последний подтверждённый результат: `Проект подготовлен к контейнерному деплою в Coolify, снабжён корневым AGENTS.md и структурным README.md: добавлены standalone build, Dockerfile, .dockerignore, /api/health, env-aware metadataBase и проектные правила; production build проходит локально.`
 
 ## Следующий шаг
 - `Развернуть контейнер в Coolify и задать доменные env-переменные, затем продолжить SEO и контентную доработку.`
 
 ## Снимок прогресса
-- Завершено: `документы, базовый каркас сайта, i18n-архитектура, доменная логика, язык-switcher, базовый каталог услуг, логотипы, Coolify deployment baseline`
+- Завершено: `документы, базовый каркас сайта, i18n-архитектура, доменная логика, язык-switcher, базовый каталог услуг, логотипы, Coolify deployment baseline, корневой AGENTS.md, структурный README.md`
 - В работе: `сведение кода, контента и SEO-архитектуры к единой production-модели`
 - Осталось: `CMS, углубление service pages, чистка warnings, расширение контента и metadata, настройка env по доменам в Coolify`
 
@@ -35,7 +35,9 @@ Session owner: `Codex`
 - `MEMORY.md`
 - `PROJECT-RESUME.md`
 - `STATUS-LOG.md`
+- `README.md`
 - `docs/spec/01_structured_tz.md`
+- `AGENTS.md`
 - `docs/deploy/coolify.md`
 - `Dockerfile`
 - `interlex/src/lib/i18n.ts`

@@ -1,102 +1,140 @@
-# InteLex — развёртывание из GitHub
+# Структура приложения InterLex
 
-Корпоративный сайт на **Next.js** (App Router). Исходники приложения лежат в каталоге **`interlex/`**. Корень репозитория — только удобная обёртка со скриптами `npm run dev|build|lint`.
+## Назначение
 
-## Требования
+Корпоративный сайт `InterLex`: международный legal и business advisory с фокусом на Казахстан и Грузию. Репозиторий устроен как корневой workspace с обвязкой и документацией, а само приложение находится в подпапке **`interlex/`**.
 
-- **Node.js** 20.x или новее (рекомендуется актуальный LTS).
-- **npm** (или совместимый клиент для установки зависимостей).
+Технологический стек приложения:
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS 4**
 
-## Клонирование с GitHub
+Целевая модель развёртывания:
+- контейнерный деплой через **Coolify**
+- production-сборка в режиме **`output: "standalone"`**
 
-```bash
-git clone https://github.com/NohchiyBors/InteLex.git
-cd InteLex
+## Схема потока данных и сборки
+
+- Корень репозитория хранит документацию, deployment-файлы, status-файлы и wrapper-скрипты npm.
+- Рабочее веб-приложение живёт в `interlex/`.
+- Точка входа приложения: `interlex/src/app/layout.tsx` и `interlex/src/app/page.tsx`.
+- Маршруты строятся через **Next.js App Router** в `interlex/src/app/`.
+- Общие компоненты лежат в `interlex/src/components/`.
+- Локализация и контентные словари лежат в `interlex/src/lib/i18n*`.
+- Каталог услуг описан в `interlex/src/lib/services.ts`.
+- Public-ассеты отдаются из `interlex/public/`.
+- Для production `next build` создаёт `.next/standalone`, а запуск идёт через `node .next/standalone/server.js`.
+- Для контейнерного деплоя в корне есть `Dockerfile`; он собирает приложение из подпапки `interlex/`.
+
+## Дерево каталогов (логическая модель)
+
+```text
+InteLex/
+├── AGENTS.md                    # Общие правила для агентов по всему проекту
+├── README.md                    # Этот обзор структуры репозитория
+├── package.json                 # Wrapper-скрипты npm из корня
+├── Dockerfile                   # Multi-stage production build для Coolify / Docker
+├── .dockerignore                # Исключения для build context
+├── .env.example                 # Пример env-переменных
+├── TODO.md                      # Текущие задачи проекта
+├── MEMORY.md                    # Устойчивые решения и ограничения
+├── PROJECT-RESUME.md            # Снимок текущего состояния
+├── STATUS-LOG.md                # Журнал заметных шагов
+├── StatusProject.md             # Индексный файл режима StatusProject
+├── docs/
+│   ├── spec/                    # ТЗ, sitemap, scope, content plan, dev task list
+│   └── deploy/
+│       └── coolify.md           # Инструкция по деплою в Coolify
+├── design/                      # Дизайн-материалы и Stitch exports
+├── logo/                        # Исходные логотипы бренда
+├── interlex/                    # Основное Next.js-приложение
+│   ├── package.json             # Скрипты приложения: dev, build, start, lint
+│   ├── next.config.ts           # Конфиг Next.js, включая standalone output
+│   ├── tsconfig.json
+│   ├── eslint.config.mjs
+│   ├── postcss.config.mjs
+│   ├── AGENTS.md                # Узкие правила именно для Next.js-части
+│   ├── public/
+│   │   └── brand/               # Применяемые логотипы InterLex
+│   ├── src/
+│   │   ├── app/                 # Layout, страницы, api routes, server actions
+│   │   ├── components/
+│   │   │   ├── forms/           # Формы и кнопки отправки
+│   │   │   └── layout/          # Header, Footer, nav, language switcher
+│   │   └── lib/
+│   │       ├── i18n.ts          # Локали, chrome strings, доменная логика
+│   │       ├── services.ts      # Каталог услуг и service detail data
+│   │       └── i18n/
+│   │           ├── server.ts    # Определение locale по host/cookie
+│   │           └── messages/    # Контентные словари по страницам
+│   ├── .next/                   # Результат локальной сборки (не править вручную)
+│   └── node_modules/            # Зависимости приложения
+└── StatusProject/               # Вспомогательная папка project-state режима
 ```
 
-## Установка зависимостей
+## Роли основных файлов
 
-Из корня репозитория:
+| Компонент | Файл / каталог | Ответственность |
+|-----------|----------------|-----------------|
+| Корневой вход в проект | `README.md`, `AGENTS.md` | Обзор структуры, общие правила репозитория |
+| Статус проекта | `TODO.md`, `MEMORY.md`, `PROJECT-RESUME.md`, `STATUS-LOG.md` | Состояние работ, ограничения, журнал шагов |
+| Бизнес-спецификация | `docs/spec/*` | ТЗ, архитектура страниц, scope и backlog |
+| Деплой | `Dockerfile`, `docs/deploy/coolify.md` | Сборка и запуск в Docker / Coolify |
+| Next.js app shell | `interlex/src/app/layout.tsx` | Общий layout, metadata, header/footer |
+| Главная страница | `interlex/src/app/page.tsx` | Основной входной коммерческий экран |
+| Основные маршруты | `interlex/src/app/*/page.tsx` | Страницы `services`, `kz`, `ge`, `packages`, `contacts` |
+| Service detail routes | `interlex/src/app/services/[slug]/page.tsx` | Детальные страницы услуг |
+| Навигация и chrome | `interlex/src/components/layout/*` | Header, nav, footer, language switcher |
+| Формы | `interlex/src/components/forms/*`, `interlex/src/app/actions/*` | UI форм и server actions |
+| Локализация | `interlex/src/lib/i18n.ts`, `interlex/src/lib/i18n/messages/*` | Локали, тексты, fallback-логика |
+| Данные каталога услуг | `interlex/src/lib/services.ts` | Категории и detail-данные услуг |
+| Публичные ассеты | `interlex/public/*` | Логотипы и прочая статика |
 
-```bash
-npm install --prefix interlex
-```
+## Скрипты npm
 
-Либо перейти в приложение и установить там:
+### Корень репозитория
 
-```bash
-cd interlex
-npm install
-```
+- `npm run dev` — запускает dev-режим приложения из `interlex/`
+- `npm run build` — запускает production build приложения из `interlex/`
+- `npm run lint` — запускает lint приложения из `interlex/`
 
-## Локальный запуск (разработка)
+### Приложение `interlex/`
 
-Из корня:
+- `npm run dev` — локальная разработка на Next.js dev server
+- `npm run build` — production build
+- `npm run start` — запуск standalone production server
+- `npm run lint` — eslint-проверка
 
-```bash
-npm run dev
-```
-
-Или из `interlex/`:
-
-```bash
-cd interlex
-npm run dev
-```
-
-Сайт: [http://localhost:3000](http://localhost:3000).
-
-## Сборка и production-запуск локально
-
-В `next.config.ts` включён **`output: "standalone"`** (нужно для Docker/Coolify). В этом режиме **`next start` не используется** — после сборки сервер запускается через собранный `server.js`.
-
-```bash
-npm run build
-npm run start --prefix interlex
-```
-
-После `build` команда `start` выполняет **`node .next/standalone/server.js`** (порт по умолчанию **3000**, задаётся переменной **`PORT`**).
-
-## Переменные окружения
-
-Для работы сайта в продакшене обязательных секретов в текущей версии нет. Файл **`.env.example`** в корне описывает переменные для локальных инструментов (например, MCP Stitch для разработки). При необходимости скопируйте значения в переменные окружения CI или хостинга; не коммитьте реальные ключи.
-
-## Развёртывание с GitHub
-
-### Vercel (рекомендуется для Next.js)
-
-1. Импортируйте репозиторий в [Vercel](https://vercel.com/new): укажите этот GitHub-репозиторий.
-2. **Важно:** задайте **Root Directory** = `interlex` (не корень монорепозитория).
-3. **Build Command:** `npm run build`. На Vercel Next.js разворачивается средствами платформы; отдельный запуск `node .next/standalone/server.js` там **не нужен** (он для Docker/своего сервера).
-4. После пуша в подключённую ветку (например, `main`) Vercel соберёт и опубликует новую версию.
-
-### Другие платформы
-
-Принцип тот же: рабочая директория сборки должна быть **`interlex`**, где лежит `package.json` приложения. Укажите:
-
-- install: `npm ci` или `npm install`
-- build: `npm run build`
-- start: `npm run start`
-
-Убедитесь, что платформа поддерживает **Node 20+** и не обрезает лимиты по времени/памяти на этапе `next build`.
-
-### Свой сервер (Node)
-
-На машине после `git clone` и `npm install --prefix interlex`:
+В среде, где PowerShell плохо обрабатывает `npm`, использовать:
 
 ```bash
-npm run build
+cmd /c npm.cmd run <script>
 ```
 
-Запуск процесса (через systemd, PM2 и т.п.):
+## Принципы архитектуры
 
-```bash
-cd interlex && npm run start
-```
+- Репозиторий разделён на:
+  - проектную документацию и состояние работ в корне
+  - приложение в `interlex/`
+- Бизнес-решения и архитектура страниц сначала фиксируются в `docs/spec/`, потом отражаются в коде.
+- Проект не должен откатываться в сторону landing page.
+- Доменно-зависимая локаль является частью архитектуры:
+  - `interlex.kz` -> `ru`
+  - `interlex.ge` -> `en`
+- Дополнительные локали (`zh`, `kk`, `ka`) должны сохраняться в архитектуре даже если часть контента пока fallback-only.
+- Изменения структуры репозитория нужно синхронизировать с:
+  - `README.md`
+  - `AGENTS.md`
+  - status-файлами проекта
 
-Обычно перед приложением ставят reverse-proxy (nginx, Caddy) с TLS и проксированием на `127.0.0.1:3000`.
+## Полезные ссылки внутри репозитория
 
-## Полезные ссылки
+- Спецификация: [docs/spec/01_structured_tz.md](D:\Data\OneDrive\source\www\InteLex\docs\spec\01_structured_tz.md)
+- Sitemap и page blocks: [docs/spec/02_sitemap_and_page_blocks.md](D:\Data\OneDrive\source\www\InteLex\docs\spec\02_sitemap_and_page_blocks.md)
+- Launch scope: [docs/spec/03_launch_scope.md](D:\Data\OneDrive\source\www\InteLex\docs\spec\03_launch_scope.md)
+- Dev task list: [docs/spec/05_dev_task_list.md](D:\Data\OneDrive\source\www\InteLex\docs\spec\05_dev_task_list.md)
+- Coolify deploy note: [docs/deploy/coolify.md](D:\Data\OneDrive\source\www\InteLex\docs\deploy\coolify.md)
 
-- Спецификация и задачи: каталог `docs/spec/` в репозитории.
-- Точка входа для статуса проекта: `StatusProject.md`, `TODO.md`, `MEMORY.md`.
+---
+*Файл создан для быстрой ориентации в репозитории. Дата: 2026-04-20.*
