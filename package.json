@@ -1,0 +1,11 @@
+{
+  "name": "intelex-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "description": "InterLex monorepo root; Next.js app lives in interlex/",
+  "scripts": {
+    "dev": "npm run dev --prefix interlex",
+    "build": "npm run build --prefix interlex",
+    "lint": "npm run lint --prefix interlex"
+  }
+}

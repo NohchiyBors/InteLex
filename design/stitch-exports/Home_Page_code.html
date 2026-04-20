@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>INTERLEX | Sovereign Advisory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#081a3e",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffe08f",
+                        "surface-container": "#eceef1",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#351b00",
+                        "primary-container": "#0f2044",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b6c6f3",
+                        "inverse-primary": "#b6c6f3",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#785d00",
+                        "background": "#f7f9fc",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#37466c",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "error": "#ba1a1a",
+                        "tertiary": "#150700",
+                        "on-background": "#191c1e",
+                        "secondary-container": "#fed977",
+                        "outline": "#75777f",
+                        "surface-tint": "#4e5e85",
+                        "outline-variant": "#c5c6cf",
+                        "on-secondary-fixed-variant": "#584400",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e6",
+                        "on-secondary-fixed": "#241a00",
+                        "primary-fixed": "#dae2ff",
+                        "surface": "#f7f9fc",
+                        "on-surface-variant": "#45464e",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#755b00",
+                        "secondary-fixed-dim": "#e6c364",
+                        "primary": "#000924",
+                        "surface-variant": "#e0e3e6",
+                        "on-primary-container": "#7988b2",
+                        "surface-container-low": "#f2f4f7",
+                        "tertiary-fixed-dim": "#ffb873",
+                        "surface-dim": "#d8dadd",
+                        "on-tertiary-container": "#c77505",
+                        "on-tertiary-fixed": "#2d1600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7f9fc]/80 dark:bg-[#000924]/80 backdrop-blur-xl shadow-sm dark:shadow-none bg-[#f2f4f7] dark:bg-[#191c1e]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-12 py-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-surface text-2xl">gavel</span>
+<span class="font-serif font-bold text-[#000924] dark:text-white tracking-widest text-xl">INTERLEX</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<!-- Navigation derived from Footer links, assuming standard structure -->
+<a class="text-[#755b00] border-b-2 border-[#755b00] pb-1 hover:text-[#755b00] transition-colors duration-300 scale-95 duration-200" href="#">Kazakhstan</a>
+<a class="text-[#191c1e] dark:text-[#f2f4f7] font-medium hover:text-[#755b00] transition-colors duration-300 scale-95 duration-200" href="#">Georgia</a>
+<a class="text-[#191c1e] dark:text-[#f2f4f7] font-medium hover:text-[#755b00] transition-colors duration-300 scale-95 duration-200" href="#">M&amp;A Advisory</a>
+<a class="text-[#191c1e] dark:text-[#f2f4f7] font-medium hover:text-[#755b00] transition-colors duration-300 scale-95 duration-200" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-serif text-sm tracking-tighter uppercase text-[#000924] dark:text-[#f7f9fc] hover:text-[#755b00] transition-colors duration-300">EN | RU | ZH</button>
+</div>
+</div>
+</header>
+<main class="pt-28">
+<!-- Hero Section -->
+<section class="relative min-h-[751px] flex items-center bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Corporate Architecture" class="w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="abstract architectural details of a modern corporate skyscraper with sharp lines and deep shadows, professional and imposing aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxPuwzjHOl10oWYcGAksrFCgGi7DK7BemHxlF4QYtQ1qA8EuQBTSszWqiAuspZnDRXZuuE-gw1ZGd5KastrTZuAnEhcI0xTCIwOADDzdt7TPlyacPlt12S9-3dKW8oUHVW9NrmgdBLWsY-L70oaBLobomuVb7EzzoYpGXe90sVIjWgvqPVWc2xDktSpr_vE8sHskioOkpoSagHnudaXdk98oCdBd0FWb829NTuQKpJJSeJ3t6fHg2JjB6Ov3vDzdTtX1xhFw5_5bc"/>
+</div>
+<div class="max-w-7xl mx-auto px-12 relative z-10 w-full">
+<div class="max-w-3xl">
+<div class="mb-6 flex items-center gap-4">
+<div class="h-[1px] w-12 bg-secondary"></div>
+<span class="font-label text-sm tracking-widest text-secondary font-medium uppercase">Sovereign Advisory</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-medium tracking-tight text-primary leading-tight mb-8">
+                        Two Jurisdictions, <br/>
+<span class="text-on-surface-variant">One Partner.</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                        Navigating complex corporate structures across Kazakhstan and Georgia. We provide definitive legal, tax, and M&amp;A advisory for cross-border entities.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary text-on-primary px-8 py-4 font-label text-sm uppercase tracking-wider hover:bg-on-primary-fixed transition-colors">
+                            Engage Advisory
+                        </button>
+<button class="text-primary border-b border-secondary pb-1 font-label text-sm uppercase tracking-wider hover:text-secondary transition-colors inline-flex items-center gap-2">
+                            Explore Jurisdictions <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Metrics -->
+<section class="py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 border-y border-outline-variant/20 py-12">
+<div class="flex flex-col">
+<span class="font-headline text-4xl text-primary mb-2">12+</span>
+<span class="font-label text-sm text-on-surface-variant uppercase tracking-wider">Years of Practice</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-4xl text-primary mb-2">$2B+</span>
+<span class="font-label text-sm text-on-surface-variant uppercase tracking-wider">M&amp;A Facilitated</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-4xl text-primary mb-2">350+</span>
+<span class="font-label text-sm text-on-surface-variant uppercase tracking-wider">Corporate Entities</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-4xl text-primary mb-2">2</span>
+<span class="font-label text-sm text-on-surface-variant uppercase tracking-wider">Key Jurisdictions</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Overview (Editorial Layout) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-12">
+<div class="grid md:grid-cols-12 gap-16">
+<div class="md:col-span-4">
+<h2 class="font-headline text-4xl text-primary tracking-tight mb-6">Core<br/>Disciplines</h2>
+<p class="font-body text-on-surface-variant mb-8">
+                            Our practice is strictly focused on high-stakes corporate advisory, ensuring absolute precision in our core markets.
+                        </p>
+</div>
+<div class="md:col-span-8 flex flex-col gap-12">
+<!-- Service 1 -->
+<div class="flex gap-8 group">
+<div class="font-headline text-3xl text-secondary opacity-50 font-light">01</div>
+<div>
+<h3 class="font-headline text-2xl text-primary mb-4 group-hover:text-secondary transition-colors">Cross-Border Structuring</h3>
+<p class="font-body text-on-surface-variant max-w-xl">
+                                    Architecting tax-efficient, legally robust corporate entities spanning multiple jurisdictions, specializing in the nuances between Central Asia and the Caucasus.
+                                </p>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="flex gap-8 group">
+<div class="font-headline text-3xl text-secondary opacity-50 font-light">02</div>
+<div>
+<h3 class="font-headline text-2xl text-primary mb-4 group-hover:text-secondary transition-colors">Mergers &amp; Acquisitions</h3>
+<p class="font-body text-on-surface-variant max-w-xl">
+                                    Full-lifecycle advisory for complex M&amp;A transactions. From rigorous due diligence to definitive agreements and post-merger integration.
+                                </p>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="flex gap-8 group">
+<div class="font-headline text-3xl text-secondary opacity-50 font-light">03</div>
+<div>
+<h3 class="font-headline text-2xl text-primary mb-4 group-hover:text-secondary transition-colors">Regulatory Compliance</h3>
+<p class="font-body text-on-surface-variant max-w-xl">
+                                    Navigating the distinct regulatory frameworks of the AIFC (Kazakhstan) and Georgian Free Industrial Zones, ensuring absolute operational legality.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Country Comparison (Bento Grid) -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="mb-16">
+<h2 class="font-headline text-4xl text-primary tracking-tight">The Jurisdictions</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Kazakhstan Card -->
+<div class="bg-surface-container-lowest p-12 border border-outline-variant/15 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-surface-container-high rounded-full -translate-y-1/2 translate-x-1/2 opacity-20"></div>
+<h3 class="font-headline text-3xl text-primary mb-6">Kazakhstan</h3>
+<p class="font-label text-sm text-secondary uppercase tracking-widest mb-8">AIFC Focus</p>
+<ul class="space-y-6 font-body text-on-surface-variant">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+<span>English Common Law framework within the AIFC.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+<span>Unprecedented tax incentives for holding companies.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+<span>Gateway to Central Asian and Chinese markets.</span>
+</li>
+</ul>
+</div>
+<!-- Georgia Card -->
+<div class="bg-primary text-on-primary p-12 relative overflow-hidden group">
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-primary-container rounded-full translate-y-1/2 translate-x-1/2 opacity-50"></div>
+<h3 class="font-headline text-3xl text-surface mb-6">Georgia</h3>
+<p class="font-label text-sm text-secondary-container uppercase tracking-widest mb-8">Strategic Hub</p>
+<ul class="space-y-6 font-body text-on-primary/80">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+<span>Exceptional ease of doing business rankings.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+<span>Territorial tax system and Free Industrial Zones.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+<span>Strategic access to European and Middle Eastern markets.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Lead Form -->
+<section class="py-32 bg-surface-container-high border-t border-outline-variant/10">
+<div class="max-w-4xl mx-auto px-12">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl text-primary tracking-tight mb-4">Request a Consultation</h2>
+<p class="font-body text-on-surface-variant">Confidential advisory for definitive corporate strategy.</p>
+</div>
+<form class="space-y-12">
+<div class="grid md:grid-cols-2 gap-12">
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 text-primary focus:ring-0 focus:border-secondary transition-colors peer placeholder-transparent" id="name" placeholder="Name" type="text"/>
+<label class="absolute left-0 top-3 font-label text-sm text-on-surface-variant transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-valid:-top-4 peer-valid:text-xs" for="name">Full Legal Name</label>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 text-primary focus:ring-0 focus:border-secondary transition-colors peer placeholder-transparent" id="email" placeholder="Email" type="email"/>
+<label class="absolute left-0 top-3 font-label text-sm text-on-surface-variant transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-valid:-top-4 peer-valid:text-xs" for="email">Corporate Email</label>
+</div>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 text-primary focus:ring-0 focus:border-secondary transition-colors peer placeholder-transparent resize-none" id="inquiry" placeholder="Inquiry" rows="4"></textarea>
+<label class="absolute left-0 top-3 font-label text-sm text-on-surface-variant transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-valid:-top-4 peer-valid:text-xs" for="inquiry">Nature of Inquiry</label>
+</div>
+<div class="flex justify-end pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 font-label text-sm uppercase tracking-wider hover:bg-on-primary-fixed transition-colors" type="button">
+                            Submit Inquiry
+                        </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 border-t border-[#000924]/5 bg-[#f2f4f7] dark:bg-[#000924] tonal shift from surface to surface-container-low flat">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="font-serif text-xl font-bold text-[#000924] dark:text-white mb-6">INTERLEX</div>
+<p class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 max-w-xs leading-relaxed">
+                    © 2024 INTERLEX SOVEREIGN ADVISORY. ALL RIGHTS RESERVED.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Kazakhstan</a>
+<a class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Georgia</a>
+<a class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">M&amp;A Advisory</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Pricing</a>
+<a class="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 dark:text-[#f7f9fc]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

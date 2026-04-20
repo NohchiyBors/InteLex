@@ -1,4 +1,4 @@
-# Interlex: задание для Stitch
+# InterLex: задание для Stitch
 
 Ниже готовый промпт для `https://stitch.withgoogle.com/`. Его можно вставлять целиком, либо использовать по частям: сначала для общей концепции, потом отдельно для ключевых страниц.
 
@@ -6,10 +6,10 @@
 
 ## Вариант 1. Основной промпт для генерации концепции сайта
 
-Design a premium multilingual B2B website for `Interlex`, a legal and business consulting company helping foreign entrepreneurs and investors launch, buy, and operate businesses in `Kazakhstan` and `Georgia`.
+Design a premium multilingual B2B website for `InterLex`, a legal and business consulting company helping foreign entrepreneurs and investors launch, buy, and operate businesses in `Kazakhstan` and `Georgia`.
 
 ### Business positioning
-Interlex is a high-trust advisory firm that provides:
+InterLex is a high-trust advisory firm that provides:
 - business registration for foreign founders
 - free economic zone and special tax regime advisory
 - legal and accounting support
@@ -21,7 +21,7 @@ Interlex is a high-trust advisory firm that provides:
 
 ### Core value proposition
 Two jurisdictions, one partner: Kazakhstan + Georgia.
-Interlex handles the full cycle from company registration to post-launch support, investor relations, and transaction support.
+InterLex handles the full cycle from company registration to post-launch support, investor relations, and transaction support.
 
 ### Target audience
 - foreign investors
@@ -35,11 +35,13 @@ Interlex handles the full cycle from company registration to post-launch support
 - generate qualified leads
 - communicate trust and premium expertise
 - explain complex legal and business services clearly
+- present a full service catalog as a core navigation layer
 - support SEO growth
 - guide users to consultation requests
 
 ### Required pages
 - Home
+- Services Catalog
 - About
 - Kazakhstan
 - Georgia
@@ -88,7 +90,11 @@ Avoid startup-casual aesthetics, generic SaaS gradients, and playful visuals.
 - subtle premium motion, not flashy
 
 ### UX requirements
-- multilingual-ready layout for `RU`, `EN`, and later `ZH`
+- multilingual-ready layout for `RU`, `EN`, `ZH`, `KK`, and `KA`
+- primary market/domain logic:
+  - `interlex.kz` should feel Russian-first
+  - `interlex.ge` should feel English-first
+  - `ZH`, `KK`, and `KA` are additional language options
 - mobile-first responsive design
 - sticky header
 - clear CTA buttons above the fold
@@ -100,7 +106,7 @@ Avoid startup-casual aesthetics, generic SaaS gradients, and playful visuals.
 - premium hero with headline and dual-jurisdiction message
 - services overview
 - Kazakhstan vs Georgia comparison
-- why Interlex
+- why InterLex
 - key metrics / proof points
 - featured services
 - packages preview
@@ -124,6 +130,7 @@ This should look like a firm advising cross-border investors, not a budget agenc
 ### Deliverable request
 Generate a complete website design direction and key screen concepts for desktop and mobile, starting with:
 - Home page
+- Services Catalog page
 - Kazakhstan page
 - Georgia page
 - Packages page
@@ -134,7 +141,7 @@ Generate a complete website design direction and key screen concepts for desktop
 
 ## Вариант 2. Промпт для главной страницы
 
-Design a premium homepage for `Interlex`, an international legal and business advisory firm helping foreign clients launch and structure businesses in `Kazakhstan` and `Georgia`.
+Design a premium homepage for `InterLex`, an international legal and business advisory firm helping foreign clients launch and structure businesses in `Kazakhstan` and `Georgia`.
 
 ### Hero requirements
 - strong premium hero section
@@ -151,7 +158,7 @@ Design a premium homepage for `Interlex`, an international legal and business ad
 ### Required homepage blocks
 - services overview with icon cards
 - Kazakhstan vs Georgia comparison section
-- why Interlex with 6 key differentiators
+- why InterLex with 6 key differentiators
 - case studies / proof metrics
 - featured packages
 - testimonials
@@ -171,7 +178,7 @@ Avoid generic startup landing page patterns.
 
 ## Вариант 3. Промпт для внутренних страниц
 
-Design a system of inner pages for `Interlex` with a consistent premium legal-tech style.
+Design a system of inner pages for `InterLex` with a consistent premium legal-tech style.
 
 Create templates for:
 - jurisdiction hub page
@@ -215,7 +222,7 @@ Create templates for:
 
 ## Вариант 4. Короткий промпт, если Stitch лучше работает от сжатого ввода
 
-Design a premium multilingual corporate website for `Interlex`, a legal and business consulting firm for foreign entrepreneurs and investors in `Kazakhstan` and `Georgia`. The site should communicate trust, international expertise, and full-cycle support: company registration, FEZ/FIZ advisory, accounting, legal support, corporate management, investor relations, M&A, and due diligence.
+Design a premium multilingual corporate website for `InterLex`, a legal and business consulting firm for foreign entrepreneurs and investors in `Kazakhstan` and `Georgia`. The site should communicate trust, international expertise, and full-cycle support: company registration, FEZ/FIZ advisory, accounting, legal support, corporate management, investor relations, M&A, and due diligence.
 
 Use a premium legal-tech visual style with deep navy `#0F2044`, gold `#C9A84C`, light neutral backgrounds, serif headlines, clean sans-serif body text, structured editorial layouts, strong CTA sections, and high-trust B2B aesthetics. Avoid generic startup visuals.
 
@@ -279,4 +286,3 @@ The result should feel executive, polished, international, and conversion-focuse
 - FIZ directory
 - Blog
 - Article page
-

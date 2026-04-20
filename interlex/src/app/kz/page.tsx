@@ -1,0 +1,128 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { getLocale } from "@/lib/i18n/server";
+import { kzMeta, kzMessages } from "@/lib/i18n/messages/kz";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return kzMeta[locale];
+}
+
+export default async function KazakhstanPage() {
+  const locale = await getLocale();
+  const t = kzMessages[locale];
+
+  return (
+    <main className="pt-32 pb-24">
+      <section className="max-w-7xl mx-auto px-12 mb-32 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-7 pb-12 z-10 relative">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-primary leading-tight mb-8">
+              {t.heroTitle1} <br />
+              {t.heroTitle2}
+            </h1>
+            <p className="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed">{t.heroLead}</p>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <div className="aspect-[4/5] bg-surface-container-low shadow-[0_30px_60px_-15px_rgba(25,28,30,0.1)] relative overflow-hidden">
+              <img
+                alt=""
+                className="object-cover w-full h-full opacity-90"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxmgAgzf6wLgebpD1Q09aAYa16kYBBLp5PfF5t52qJ0ruu09bKVtzvtPs1BWSWbdo3l2SY_rvb6D1bOW-95z6F-J28i218bMX6v5nBuZcJ9j4afidhCrTY00bHn-4BoSxzTaB9ALgjXpAUO5zGKnDl41RlGyXaEJDsQW9ugZwxHF5vTOKZNf4NUpPF5gBS7evQwAl1Rawc_Ajow8CtCXjqcJT6ZsS04_CqrE2_ZuC0FpRvxyEtz7TAeR428P4F29peMVQI6u8xag4"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-12 mb-32 bg-surface-container-low py-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div>
+            <h2 className="font-headline text-4xl text-primary font-medium tracking-tight mb-8 drop-cap">01</h2>
+            <h3 className="font-body text-lg font-semibold text-primary mb-4">{t.adv1Title}</h3>
+            <p className="font-body text-on-surface-variant leading-relaxed">{t.adv1Body}</p>
+          </div>
+          <div>
+            <h2 className="font-headline text-4xl text-primary font-medium tracking-tight mb-8 drop-cap">02</h2>
+            <h3 className="font-body text-lg font-semibold text-primary mb-4">{t.adv2Title}</h3>
+            <p className="font-body text-on-surface-variant leading-relaxed">{t.adv2Body}</p>
+          </div>
+          <div>
+            <h2 className="font-headline text-4xl text-primary font-medium tracking-tight mb-8 drop-cap">03</h2>
+            <h3 className="font-body text-lg font-semibold text-primary mb-4">{t.adv3Title}</h3>
+            <p className="font-body text-on-surface-variant leading-relaxed">{t.adv3Body}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-12 mb-32">
+        <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-outline-variant/20 pb-6">
+          <h2 className="font-headline text-4xl text-primary font-medium tracking-tight">{t.coreTitle}</h2>
+          <Link
+            className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1"
+            href="/services"
+          >
+            {t.viewAll}
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-24">
+          <div className="flex gap-6">
+            <span className="material-symbols-outlined text-secondary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>
+              domain
+            </span>
+            <div>
+              <h3 className="font-headline text-2xl text-primary mb-4">{t.svc1Title}</h3>
+              <p className="font-body text-on-surface-variant mb-6 leading-relaxed">{t.svc1Body}</p>
+              <button className="bg-primary text-on-primary px-6 py-3 font-body text-sm tracking-wide hover:bg-primary/90 transition-colors rounded">
+                {t.svc1Cta}
+              </button>
+            </div>
+          </div>
+          <div className="flex gap-6">
+            <span className="material-symbols-outlined text-secondary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>
+              account_balance
+            </span>
+            <div>
+              <h3 className="font-headline text-2xl text-primary mb-4">{t.svc2Title}</h3>
+              <p className="font-body text-on-surface-variant mb-6 leading-relaxed">{t.svc2Body}</p>
+              <button className="bg-primary text-on-primary px-6 py-3 font-body text-sm tracking-wide hover:bg-primary/90 transition-colors rounded">
+                {t.svc2Cta}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-12">
+        <h2 className="font-headline text-4xl text-primary font-medium tracking-tight mb-12">{t.zonesTitle}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-8 bg-surface-container-lowest p-12 shadow-[0_20px_40px_-20px_rgba(25,28,30,0.08)] relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-surface-container-low rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-105 duration-700"></div>
+            <div className="relative z-10">
+              <span className="font-body text-xs tracking-widest uppercase text-secondary mb-4 block">{t.aifcTag}</span>
+              <h3 className="font-headline text-3xl text-primary mb-6">{t.aifcTitle}</h3>
+              <p className="font-body text-on-surface-variant mb-8 max-w-lg leading-relaxed">{t.aifcBody}</p>
+              <div className="flex gap-4 flex-wrap">
+                <span className="px-3 py-1 bg-surface-container text-xs font-body text-on-surface-variant">{t.tagFintech}</span>
+                <span className="px-3 py-1 bg-surface-container text-xs font-body text-on-surface-variant">{t.tagAsset}</span>
+                <span className="px-3 py-1 bg-surface-container text-xs font-body text-on-surface-variant">{t.tagIslamic}</span>
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-4 flex flex-col gap-8">
+            <div className="bg-surface-container-low p-8 h-full">
+              <h4 className="font-headline text-xl text-primary mb-3">{t.khTitle}</h4>
+              <p className="font-body text-sm text-on-surface-variant mb-4">{t.khBody}</p>
+              <span className="font-body text-xs text-primary border-b border-secondary inline-block">{t.khLink}</span>
+            </div>
+            <div className="bg-surface-container-low p-8 h-full">
+              <h4 className="font-headline text-xl text-primary mb-3">{t.pitTitle}</h4>
+              <p className="font-body text-sm text-on-surface-variant mb-4">{t.pitBody}</p>
+              <span className="font-body text-xs text-primary border-b border-secondary inline-block">{t.pitLink}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
