@@ -5,6 +5,19 @@ import { getHtmlLang } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/server";
 import "./globals.css";
 
+function getMetadataBase() {
+  const rawUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
+    "https://interlex.kz";
+
+  try {
+    return new URL(rawUrl);
+  } catch {
+    return new URL("https://interlex.kz");
+  }
+}
+
 export const metadata: Metadata = {
   title: {
     default: "InterLex",
@@ -12,6 +25,7 @@ export const metadata: Metadata = {
   },
   applicationName: "InterLex",
   description: "Cross-border legal and business advisory in Kazakhstan and Georgia.",
+  metadataBase: getMetadataBase(),
 };
 
 export default async function RootLayout({

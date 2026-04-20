@@ -1,0 +1,15 @@
+.git
+.gitignore
+.next
+node_modules
+docs
+design
+logo
+StatusProject
+interlex/.next
+interlex/node_modules
+interlex/.git
+interlex/README.md
+Interlex_Presentation.pptx
+Interlex_Website_Brief.docx
+*.md

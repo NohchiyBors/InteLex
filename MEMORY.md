@@ -24,6 +24,8 @@
   Причина: они уже зафиксированы в документах и в коде.
 - Решение: основной бренд пишется как `InterLex`.
   Причина: это явное указание пользователя.
+- Решение: для деплоя в Coolify использовать `Dockerfile`, а не полагаться на автоопределение.
+  Причина: приложение находится в подпапке `interlex/`, а Dockerfile даёт предсказуемый build/runtime.
 
 ## Жёсткие правила
 - Не использовать терминологию `MVP` как основную рамку проекта.
@@ -49,12 +51,16 @@
 - Документы-спецификации в `docs/spec`
 - Рабочий Next.js-проект в `interlex`
 - Google Drive-материалы по пакетам, sales funnel, GR и investment catalog
+- Production deployment files:
+  - `Dockerfile`
+  - `.dockerignore`
+  - `docs/deploy/coolify.md`
 
 ## Известные ограничения
 - `KK` и `KA` пока не имеют полного собственного контента и используют fallback.
 - CMS пока не подключена.
 - В проекте остаются lint warnings по `<img>` и внешнему font link.
-- `build` ранее компилировал проект, но падал на системном `spawn EPERM` после компиляции.
+- Живой контейнерный деплой в Coolify ещё не был проверен на целевом сервере.
 
 ## Важные ссылки и артефакты
 - Спецификация: `docs/spec/01_structured_tz.md`
@@ -62,6 +68,8 @@
 - Scope запуска: `docs/spec/03_launch_scope.md`
 - Таск-лист разработки: `docs/spec/05_dev_task_list.md`
 - Stitch prompt: `docs/spec/06_stitch_prompt.md`
+- Coolify deployment note: `docs/deploy/coolify.md`
+- Dockerfile: `Dockerfile`
 - i18n: `interlex/src/lib/i18n.ts`
 - Service catalog data: `interlex/src/lib/services.ts`
 
@@ -72,3 +80,4 @@
   - `interlex.kz` — RU-first
   - `interlex.ge` — EN-first
 - Дополнительные языки предусмотрены архитектурно: `ZH / KK / KA`.
+- Локальный production build проходит с текущей конфигурацией.

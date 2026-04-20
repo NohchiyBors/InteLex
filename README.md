@@ -48,12 +48,14 @@ npm run dev
 
 ## Сборка и production-запуск локально
 
+В `next.config.ts` включён **`output: "standalone"`** (нужно для Docker/Coolify). В этом режиме **`next start` не используется** — после сборки сервер запускается через собранный `server.js`.
+
 ```bash
 npm run build
 npm run start --prefix interlex
 ```
 
-После `build` команда `start` запускает production-сервер Next.js (порт по умолчанию **3000**).
+После `build` команда `start` выполняет **`node .next/standalone/server.js`** (порт по умолчанию **3000**, задаётся переменной **`PORT`**).
 
 ## Переменные окружения
 
@@ -65,7 +67,7 @@ npm run start --prefix interlex
 
 1. Импортируйте репозиторий в [Vercel](https://vercel.com/new): укажите этот GitHub-репозиторий.
 2. **Важно:** задайте **Root Directory** = `interlex` (не корень монорепозитория).
-3. Команды сборки по умолчанию подходят: **Build Command** `npm run build`, **Output** управляется Next.js автоматически.
+3. **Build Command:** `npm run build`. На Vercel Next.js разворачивается средствами платформы; отдельный запуск `node .next/standalone/server.js` там **не нужен** (он для Docker/своего сервера).
 4. После пуша в подключённую ветку (например, `main`) Vercel соберёт и опубликует новую версию.
 
 ### Другие платформы

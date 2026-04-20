@@ -9,16 +9,18 @@
 - [x] Языковой переключатель переведён в формат dropdown
 - [x] Добавлен базовый каталог услуг и маршруты `/services/[slug]`
 - [x] Применены логотипы InterLex в header и footer
+- [x] Подготовлен production deployment baseline под Coolify
 
 ## Сейчас в работе
 - [ ] Привести проект к полному соответствию с утверждённой архитектурой сайта
-- [ ] Ближайшее действие: добрать service pages, SEO-логику и контентную модель
+- [ ] Ближайшее действие: добрать service pages, SEO-логику, metadata и контентную модель
 
 ## Завершено
 - [x] Аудит документов и материалов по проекту
 - [x] Подготовка ТЗ, sitemap, launch scope, content plan и dev task list
 - [x] Подготовка Stitch prompt
 - [x] Проверка Google Drive-материалов для контента сайта
+- [x] Оптимизация базового деплой-контура под Coolify
 
 ## Правила и рамки
 - [ ] Это полноценный корпоративный сайт с каталогом услуг, не лендинг
@@ -34,19 +36,23 @@
 - [ ] Убрать lint warnings по `<img>` и внешнему font link
 - [ ] Решить архитектуру CMS (`Sanity` или `Strapi`)
 - [ ] Подготовить контентную модель для услуг, пакетов и jurisdiction pages
+- [ ] Подготовить env-профили для `interlex.kz` и `interlex.ge` в Coolify
 
 ## Текущий блокер
 - `Нет критического блокера.`
 - Сдерживающий фактор:
   - в проекте ещё нет подключённой CMS
   - часть локалей пока работает через fallback
-  - `build` ранее падал на системном `spawn EPERM` после этапа компиляции
+  - контейнерный деплой ещё не проверен на живом ресурсе Coolify
 
 ## Важные файлы
 - `docs/spec/01_structured_tz.md`
 - `docs/spec/02_sitemap_and_page_blocks.md`
 - `docs/spec/03_launch_scope.md`
 - `docs/spec/05_dev_task_list.md`
+- `docs/deploy/coolify.md`
+- `Dockerfile`
+- `.dockerignore`
 - `interlex/src/lib/i18n.ts`
 - `interlex/src/lib/services.ts`
 
@@ -55,3 +61,4 @@
 - [ ] Проверить языковой переключатель и fallback-локали
 - [ ] Проверить отсутствие регрессии в header/navigation
 - [ ] Проверить `lint`, `tsc` и production build
+- [ ] Проверить деплой контейнера в Coolify и ответ `/api/health`
