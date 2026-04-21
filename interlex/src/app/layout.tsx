@@ -56,24 +56,29 @@ export default async function RootLayout({
 }>) {
   const headerStore = await headers();
   const host = resolveRequestHost(headerStore);
-  const isKzProductionHost = host === "interlex.kz";
+  const googleTagId =
+    host === "interlex.kz"
+      ? "G-0PB5VDR3F9"
+      : host === "interlex.ge"
+        ? "G-ZR71QDW2FB"
+        : null;
   const locale = await getLocale();
 
   return (
     <html lang={getHtmlLang(locale)} className="antialiased light">
       <body className="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col">
-        {isKzProductionHost ? (
+        {googleTagId ? (
           <>
             <Script
-              id="google-analytics-kz-loader"
-              src="https://www.googletagmanager.com/gtag/js?id=G-0PB5VDR3F9"
+              id={`google-analytics-loader-${googleTagId}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
               strategy="beforeInteractive"
             />
-            <Script id="google-analytics-kz" strategy="beforeInteractive">
+            <Script id={`google-analytics-${googleTagId}`} strategy="beforeInteractive">
               {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-0PB5VDR3F9');`}
+gtag('config', '${googleTagId}');`}
             </Script>
           </>
         ) : null}

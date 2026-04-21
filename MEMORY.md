@@ -15,7 +15,9 @@
 - `docs/spec` is no longer tracked in git and should be treated as a local reference archive, not a deployment/runtime dependency
 
 ## Current Implementation Facts
-- Google Analytics `gtag` with measurement ID `G-0PB5VDR3F9` is wired in the root app layout only for the exact production host `interlex.kz`, using `beforeInteractive`
+- Google Analytics `gtag` is wired in the root app layout with `beforeInteractive` and exact host mapping:
+- `interlex.kz` -> `G-0PB5VDR3F9`
+- `interlex.ge` -> `G-ZR71QDW2FB`
 - Material Symbols were removed from the app shell and page components
 - Local SVG React icons now live in `interlex/src/components/ui/icons.tsx`
 - Critical hero images are now stored under `interlex/public/images/hero`
