@@ -26,3 +26,30 @@ Local production-hardening pass for the live Coolify codebase.
 - Git commit and push still pending
 - Coolify restart still pending
 - No browser-automation visual check was run; current validation is build + HTTP smoke testing
+
+### Item
+Live asset outage on `interlex.kz` after the previous push.
+
+### Completed
+- Confirmed the live HTML reflects the latest code, so the deploy itself is updated
+- Confirmed live static asset failures for `/brand/IL_logo_dark.svg` and `/images/hero/home-hero.jpg`
+- Confirmed live `/_next/image` returns `500` because the source image from `public` is missing
+- Reproduced the same failure locally by starting `interlex` from `.next/standalone/server.js`
+- Added `interlex/scripts/prepare-standalone.mjs` to copy `public` and `.next/static` into `.next/standalone`
+- Updated `interlex/package.json` so `npm run build` prepares the standalone runtime automatically
+- Rebuilt locally and verified standalone returns `200` for `/brand/IL_logo_dark.svg`, `/images/hero/home-hero.jpg`, and `/_next/image?...`
+
+### Evidence
+- Live checks before the fix:
+- `https://interlex.kz/brand/IL_logo_dark.svg` -> `404`
+- `https://interlex.kz/images/hero/home-hero.jpg` -> `404`
+- `https://interlex.kz/_next/image?url=%2Fimages%2Fhero%2Fhome-hero.jpg&w=1200&q=75` -> `500`
+- Local standalone checks after the fix:
+- `http://127.0.0.1:3000/brand/IL_logo_dark.svg` -> `200`
+- `http://127.0.0.1:3000/images/hero/home-hero.jpg` -> `200`
+- `http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fhero%2Fhome-hero.jpg&w=1200&q=75` -> `200`
+
+### Open
+- Commit and push the runtime fix
+- Restart the Coolify deploys
+- Verify whether Coolify uses the root `Dockerfile` or a direct app start command

@@ -10,8 +10,9 @@
 - [x] Verify `npm install`, `npm run build`, and route smoke checks via local `npm run dev`
 
 ## Next Actions
-- [ ] Push the verified changes to `main`
+- [ ] Push the standalone asset-runtime fix to `main`
 - [ ] Restart the Coolify deploys for `interlex` on `host` and `hostkz`
+- [ ] Verify that Coolify uses the root `Dockerfile` or otherwise serves `interlex/public` alongside `.next/standalone`
 - [ ] Decide whether to keep dual lockfiles or set `turbopack.root` to silence the workspace-root warning
 - [ ] Decide whether `zh` should stay English fallback or receive a full dedicated translation pass later
 
@@ -24,3 +25,4 @@
 ## Open Risks
 - [ ] No browser-automation visual pass was run for responsive layout, only HTTP smoke checks
 - [ ] Coolify restart has not been executed from this session yet
+- [ ] Live hosting may still fail if Coolify bypasses the repository `Dockerfile` and starts `interlex` directly with a custom command
