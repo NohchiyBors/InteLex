@@ -10,9 +10,20 @@ export function normalizeLocale(raw: string | undefined): Locale {
   return defaultLocale;
 }
 
+/**
+ * Локаль по умолчанию для домена: `.ge` → EN, `.kz` → RU.
+ * Если `Host` за прокси не публичный (внутреннее имя Coolify), задайте `INTERLEX_INSTANCE=ge|kz`
+ * (логически соответствует инстансу под interlex.ge / interlex.kz).
+ */
 export function getDomainDefaultLocale(host: string | null | undefined): Locale {
   const normalizedHost = host?.toLowerCase().split(":")[0] ?? "";
   if (normalizedHost.endsWith("interlex.ge")) return "en";
+  if (normalizedHost.endsWith("interlex.kz")) return "ru";
+
+  const instance = process.env.INTERLEX_INSTANCE?.toLowerCase();
+  if (instance === "ge") return "en";
+  if (instance === "kz") return "ru";
+
   return "ru";
 }
 

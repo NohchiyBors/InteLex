@@ -7,5 +7,8 @@ export async function getLocale(): Promise<Locale> {
   if (savedLocale) return normalizeLocale(savedLocale);
 
   const headerStore = await headers();
-  return getDomainDefaultLocale(headerStore.get("host"));
+  const forwarded = headerStore.get("x-forwarded-host");
+  const hostFromProxy = forwarded?.split(",")[0]?.trim();
+  const host = hostFromProxy || headerStore.get("host");
+  return getDomainDefaultLocale(host);
 }
