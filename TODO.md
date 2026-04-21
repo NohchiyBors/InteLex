@@ -1,6 +1,7 @@
 # TODO: InterLex
 
 ## Current Focus
+- [x] Add Google Analytics `gtag` for production host `interlex.kz` only
 - [x] Remove Material Symbols dependency from `interlex/src/app/layout.tsx`
 - [x] Replace all `material-symbols-outlined` usages with local SVG React icons
 - [x] Move critical hero images from external Google-hosted URLs into `interlex/public/images/hero`
@@ -28,6 +29,8 @@
 ## Verification Notes
 - [x] `/` with `Host: interlex.kz` returns `lang=ru`
 - [x] `/` with `Host: interlex.ge` returns `lang=en`
+- [x] Rendered HTML for `Host: interlex.kz` includes `G-0PB5VDR3F9`
+- [x] Rendered HTML for `Host: interlex.ge` does not include `G-0PB5VDR3F9`
 - [x] `/kz`, `/ge`, `/services`, `/packages` return `200`
 - [x] Language switcher `<select>` and mobile menu trigger are present in rendered HTML
 - [x] Standalone runtime returns `200` for `/brand/IL_logo_dark.svg`, `/images/hero/home-hero.jpg`, and `/_next/image?...`

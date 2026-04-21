@@ -25,6 +25,7 @@ Session owner: `Codex`
 - Added a dedicated `/projects` page and linked it from the shared navigation
 - Added cross-links between `/projects` and the Kazakhstan / Georgia jurisdiction pages
 - Replaced placeholder contact phone numbers with direct WhatsApp links for Kazakhstan and Georgia
+- Added Google Analytics `gtag` to the root layout for the exact production host `interlex.kz`
 - Added `docs/project-inventory.md` as a working register of project directions from `docs/spec` with docs-priority and site-status fields
 - Latest repository head is `9341cd2`
 
@@ -40,6 +41,7 @@ Session owner: `Codex`
 - Confirm the active Coolify deploy path matches the repository `Dockerfile` or an equivalent runtime copy strategy
 - Update root documentation language if the repository should no longer present `docs/spec` as tracked source of truth
 - Verify the new content, projects page, shared navigation, cross-links, and WhatsApp contact additions with a clean build
+- Verify host-specific analytics markup is present on `interlex.kz` and absent on `interlex.ge`
 - Decide whether to formalise the project inventory into structured data instead of keeping it only as a markdown register
 
 ## Notes For Next Session

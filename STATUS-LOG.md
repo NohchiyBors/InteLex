@@ -3,6 +3,23 @@
 ## 2026-04-21
 
 ### Item
+Host-specific Google Analytics for `interlex.kz`.
+
+### Completed
+- Added `next/script` Google tag loading to `interlex/src/app/layout.tsx`
+- Scoped the analytics snippet to the exact resolved request host `interlex.kz`
+- Kept other hosts, including `interlex.ge` and staging hosts, without this analytics payload
+
+### Evidence
+- `interlex/src/app/layout.tsx` now resolves request host and conditionally injects measurement ID `G-0PB5VDR3F9`
+- Local standalone smoke check on 2026-04-21:
+- `Host: interlex.kz` -> HTML contains `G-0PB5VDR3F9` and `googletagmanager.com/gtag/js?id=G-0PB5VDR3F9`
+- `Host: interlex.ge` -> HTML does not contain `G-0PB5VDR3F9`
+
+### Open
+- Redeploy the production app so the host-specific analytics change reaches live `interlex.kz`
+
+### Item
 Local production-hardening pass for the live Coolify codebase.
 
 ### Completed

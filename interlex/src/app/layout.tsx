@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getHtmlLang } from "@/lib/i18n";
@@ -53,11 +54,28 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerStore = await headers();
+  const host = resolveRequestHost(headerStore);
+  const isKzProductionHost = host === "interlex.kz";
   const locale = await getLocale();
 
   return (
     <html lang={getHtmlLang(locale)} className="antialiased light">
       <body className="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col">
+        {isKzProductionHost ? (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-0PB5VDR3F9"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics-kz" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0PB5VDR3F9');`}
+            </Script>
+          </>
+        ) : null}
         <Header locale={locale} />
         <div className="flex-grow">{children}</div>
         <Footer locale={locale} />
