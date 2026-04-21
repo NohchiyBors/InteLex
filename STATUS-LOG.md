@@ -116,3 +116,18 @@ Country-specific investment-project visibility for Kazakhstan and Georgia.
 
 ### Open
 - Re-run build after the new jurisdiction-level investment sections
+
+### Item
+Shared navigation refresh for the investor-facing site direction.
+
+### Completed
+- Reordered the main header navigation so the generic services catalogue appears earlier in the menu
+- Added a dedicated `Investors / Инвесторам` entry in the shared header navigation
+- Added the same investor-direction link to the shared footer navigation
+
+### Evidence
+- `interlex/src/components/layout/HeaderNav.tsx` now links directly to `/services/investor-gr`
+- `interlex/src/components/layout/Footer.tsx` now exposes `/services/investor-gr` alongside the main catalogue links
+
+### Open
+- Re-run build after the shared navigation update

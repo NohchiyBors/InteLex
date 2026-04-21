@@ -11,6 +11,7 @@
 - [x] Patch standalone runtime asset serving and hero-image delivery for production
 - [x] Enrich the site from local `docs/spec` with service showcase and representative project tracks on core commercial pages
 - [x] Add explicit investment-project blocks for Kazakhstan and Georgia on the jurisdiction pages
+- [x] Update the shared site navigation to surface the investor direction from the main menu and footer
 
 ## Next Actions
 - [ ] Restart the Coolify deploys for `interlex` on `host` and `hostkz`
@@ -26,7 +27,7 @@
 - [x] `/kz`, `/ge`, `/services`, `/packages` return `200`
 - [x] Language switcher `<select>` and mobile menu trigger are present in rendered HTML
 - [x] Standalone runtime returns `200` for `/brand/IL_logo_dark.svg`, `/images/hero/home-hero.jpg`, and `/_next/image?...`
-- [ ] Re-run build after the new `docs/spec`-driven service/project content additions
+- [ ] Re-run build after the new `docs/spec`-driven content and menu updates
 
 ## Open Risks
 - [ ] No browser-automation visual pass was run for responsive layout, only HTTP smoke checks

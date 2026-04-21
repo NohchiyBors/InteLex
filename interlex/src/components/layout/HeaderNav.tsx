@@ -19,9 +19,10 @@ export default function HeaderNav({ t }: Props) {
 
   const items: { href: string; label: string }[] = [
     { href: "/", label: t.home },
+    { href: "/services", label: t.services },
     { href: "/kz", label: t.kazakhstan },
     { href: "/ge", label: t.georgia },
-    { href: "/services", label: t.services },
+    { href: "/services/investor-gr", label: t.investors },
     { href: "/packages", label: t.pricing },
     { href: "/contacts", label: t.contact },
   ];

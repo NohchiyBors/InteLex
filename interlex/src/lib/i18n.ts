@@ -11,7 +11,7 @@ export function normalizeLocale(raw: string | undefined): Locale {
 }
 
 /**
- * Локаль по умолчанию для домена: `.ge` → EN, `.kz` → RU.
+ * Локаль по умолчанию для домена: `.ge` -> EN, `.kz` -> RU.
  * Если `Host` за прокси не публичный (внутреннее имя Coolify), задайте `INTERLEX_INSTANCE=ge|kz`
  * (логически соответствует инстансу под interlex.ge / interlex.kz).
  */
@@ -63,17 +63,19 @@ export function getLocalePriority(current: Locale): Locale[] {
 export type ChromeStrings = {
   nav: {
     home: string;
+    services: string;
     kazakhstan: string;
     georgia: string;
-    services: string;
+    investors: string;
     pricing: string;
     contact: string;
   };
   footer: {
     tagline: string;
+    services: string;
     kazakhstan: string;
     georgia: string;
-    services: string;
+    investors: string;
     pricing: string;
     contact: string;
   };
@@ -83,17 +85,19 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
   en: {
     nav: {
       home: "Home",
+      services: "Services",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
-      services: "Services",
+      investors: "Investors",
       pricing: "Packages",
       contact: "Contact",
     },
     footer: {
       tagline: "© 2026 InterLex. Cross-border legal and business advisory for Kazakhstan and Georgia.",
+      services: "Services",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
-      services: "Services",
+      investors: "Investors",
       pricing: "Packages",
       contact: "Contact",
     },
@@ -101,17 +105,19 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
   ru: {
     nav: {
       home: "Главная",
+      services: "Услуги",
       kazakhstan: "Казахстан",
       georgia: "Грузия",
-      services: "Услуги",
+      investors: "Инвесторам",
       pricing: "Пакеты",
       contact: "Контакты",
     },
     footer: {
       tagline: "© 2026 InterLex. Международный юридический и бизнес-консалтинг для Казахстана и Грузии.",
+      services: "Услуги",
       kazakhstan: "Казахстан",
       georgia: "Грузия",
-      services: "Услуги",
+      investors: "Инвесторам",
       pricing: "Пакеты",
       contact: "Контакты",
     },

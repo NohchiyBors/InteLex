@@ -30,6 +30,7 @@
 - The home page now includes a quick service showcase and representative project-track cards derived from `docs/spec`
 - The services catalogue now includes project-selection scenarios and representative bundled project tracks derived from `docs/spec`
 - The Kazakhstan and Georgia pages now include explicit investment-project sections derived from `docs/spec` investor-entry logic
+- The shared header and footer navigation now expose the investor direction directly via `/services/investor-gr`
 
 ## Known Follow-up Items
 - `main` now includes the image/runtime fixes through commit `9341cd2`
