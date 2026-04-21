@@ -24,6 +24,7 @@ export default async function GeorgiaPage() {
           tracks: "Треки",
           outcome: "Результат",
           cta: "Смотреть investor support",
+          projectsCta: "Все проекты",
         }
       : {
           title: "Georgia investment projects",
@@ -32,6 +33,7 @@ export default async function GeorgiaPage() {
           tracks: "Tracks",
           outcome: "Outcome",
           cta: "View investor support",
+          projectsCta: "All projects",
         };
 
   return (
@@ -134,9 +136,14 @@ export default async function GeorgiaPage() {
               <h2 className="font-headline text-4xl md:text-5xl text-primary tracking-tight mb-4">{investorCopy.title}</h2>
               <p className="font-body text-on-surface-variant leading-relaxed">{investorCopy.lead}</p>
             </div>
-            <Link className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1 inline-flex items-center gap-2" href="/services/investor-gr">
-              {investorCopy.cta} <ArrowRightIcon className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-5">
+              <Link className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1 inline-flex items-center gap-2" href="/projects">
+                {investorCopy.projectsCta} <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+              <Link className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1 inline-flex items-center gap-2" href="/services/investor-gr">
+                {investorCopy.cta} <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {investmentProjects.map((project) => (

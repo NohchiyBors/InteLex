@@ -47,6 +47,12 @@ export default function Footer({ locale }: Props) {
           </Link>
           <Link
             className="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
+            href="/projects"
+          >
+            {t.projects}
+          </Link>
+          <Link
+            className="font-sans text-xs tracking-widest uppercase text-[#191c1e]/60 hover:text-[#755b00] underline decoration-[#755b00] underline-offset-4 opacity-80 hover:opacity-100 transition-opacity"
             href="/services/investor-gr"
           >
             {t.investors}

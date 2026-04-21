@@ -64,6 +64,7 @@ export type ChromeStrings = {
   nav: {
     home: string;
     services: string;
+    projects: string;
     kazakhstan: string;
     georgia: string;
     investors: string;
@@ -73,6 +74,7 @@ export type ChromeStrings = {
   footer: {
     tagline: string;
     services: string;
+    projects: string;
     kazakhstan: string;
     georgia: string;
     investors: string;
@@ -86,6 +88,7 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
     nav: {
       home: "Home",
       services: "Services",
+      projects: "Projects",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
       investors: "Investors",
@@ -95,6 +98,7 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
     footer: {
       tagline: "© 2026 InterLex. Cross-border legal and business advisory for Kazakhstan and Georgia.",
       services: "Services",
+      projects: "Projects",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
       investors: "Investors",
@@ -106,6 +110,7 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
     nav: {
       home: "Главная",
       services: "Услуги",
+      projects: "Проекты",
       kazakhstan: "Казахстан",
       georgia: "Грузия",
       investors: "Инвесторам",
@@ -115,6 +120,7 @@ const chromeBase: Record<ContentLocale, ChromeStrings> = {
     footer: {
       tagline: "© 2026 InterLex. Международный юридический и бизнес-консалтинг для Казахстана и Грузии.",
       services: "Услуги",
+      projects: "Проекты",
       kazakhstan: "Казахстан",
       georgia: "Грузия",
       investors: "Инвесторам",

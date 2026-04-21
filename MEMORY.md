@@ -31,6 +31,9 @@
 - The services catalogue now includes project-selection scenarios and representative bundled project tracks derived from `docs/spec`
 - The Kazakhstan and Georgia pages now include explicit investment-project sections derived from `docs/spec` investor-entry logic
 - The shared header and footer navigation now expose the investor direction directly via `/services/investor-gr`
+- A dedicated `/projects` page now consolidates representative project tracks and country-specific investment-project tracks
+- The projects and jurisdiction pages now cross-link so country-specific investment content and the aggregate projects route reinforce each other
+- The contacts page now uses direct WhatsApp links for the Kazakhstan and Georgia contact numbers instead of placeholder phone lines
 
 ## Known Follow-up Items
 - `main` now includes the image/runtime fixes through commit `9341cd2`

@@ -13,6 +13,16 @@ export default async function ContactsPage() {
   const locale = await getLocale();
   const t = contactsMessages[locale];
   const form = homeFormLabels[locale];
+  const whatsappCopy =
+    locale === "ru" || locale === "kk"
+      ? {
+          kzLabel: "WhatsApp Kazakhstan",
+          geLabel: "WhatsApp Georgia",
+        }
+      : {
+          kzLabel: "WhatsApp Kazakhstan",
+          geLabel: "WhatsApp Georgia",
+        };
 
   return (
     <main className="pt-32 pb-24 flex-grow">
@@ -39,9 +49,14 @@ export default async function ContactsPage() {
                   <p className="font-medium text-primary">
                     {t.emailLabel} astana@interlex.kz
                   </p>
-                  <p className="font-medium text-primary">
-                    {t.telLabel} +7 (7172) 123-456
-                  </p>
+                  <a
+                    className="inline-flex items-center gap-2 font-medium text-primary underline decoration-secondary underline-offset-4"
+                    href="https://wa.me/77000070021"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {whatsappCopy.kzLabel}: +7 700 007 0021
+                  </a>
                 </div>
               </div>
             </div>
@@ -58,9 +73,14 @@ export default async function ContactsPage() {
                   <p className="font-medium text-surface">
                     {t.emailLabel} tbilisi@interlex.ge
                   </p>
-                  <p className="font-medium text-surface">
-                    {t.telLabel} +995 32 212-34-56
-                  </p>
+                  <a
+                    className="inline-flex items-center gap-2 font-medium text-surface underline decoration-secondary-container underline-offset-4"
+                    href="https://wa.me/995591458182"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {whatsappCopy.geLabel}: +995 591 458 182
+                  </a>
                 </div>
               </div>
             </div>

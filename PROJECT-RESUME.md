@@ -22,6 +22,9 @@ Session owner: `Codex`
 - Pulled service and representative project-track content from local `docs/spec` into the home page and services catalogue
 - Added country-specific investment-project blocks to the Kazakhstan and Georgia pages
 - Updated the shared navigation so the investor direction is visible from the main menu and footer
+- Added a dedicated `/projects` page and linked it from the shared navigation
+- Added cross-links between `/projects` and the Kazakhstan / Georgia jurisdiction pages
+- Replaced placeholder contact phone numbers with direct WhatsApp links for Kazakhstan and Georgia
 - Latest repository head is `9341cd2`
 
 ## Verified Commands
@@ -35,7 +38,7 @@ Session owner: `Codex`
 - Validate live asset delivery on `interlex.kz` and related routes after redeploy
 - Confirm the active Coolify deploy path matches the repository `Dockerfile` or an equivalent runtime copy strategy
 - Update root documentation language if the repository should no longer present `docs/spec` as tracked source of truth
-- Verify the new `docs/spec`-driven content and shared navigation additions with a clean build
+- Verify the new content, projects page, shared navigation, cross-links, and WhatsApp contact additions with a clean build
 
 ## Notes For Next Session
 - If build fails with `EBUSY` on `interlex/.next/standalone`, check for leftover local `node .next/standalone/server.js` processes and stop them before rebuilding

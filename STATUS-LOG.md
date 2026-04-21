@@ -131,3 +131,50 @@ Shared navigation refresh for the investor-facing site direction.
 
 ### Open
 - Re-run build after the shared navigation update
+
+### Item
+Dedicated projects route and navigation entry.
+
+### Completed
+- Added a dedicated `/projects` route for representative commercial and investment project tracks
+- Linked the new projects route from the shared header and footer navigation
+- Kept investor-entry as a separate navigation direction instead of merging it into the projects route label
+
+### Evidence
+- `interlex/src/app/projects/page.tsx` now renders representative projects plus Kazakhstan and Georgia investment-project sections
+- `interlex/src/components/layout/HeaderNav.tsx` now links to `/projects`
+- `interlex/src/components/layout/Footer.tsx` now links to `/projects`
+
+### Open
+- Re-run build after the dedicated projects route was added
+
+### Item
+Cross-links between projects and jurisdiction pages.
+
+### Completed
+- Added links from the Kazakhstan and Georgia investment sections to the shared `/projects` route
+- Added links from the `/projects` country blocks back to `/kz` and `/ge`
+- Kept the investor-service CTA in place so project discovery and service conversion both remain visible
+
+### Evidence
+- `interlex/src/app/kz/page.tsx` now links to `/projects` from the Kazakhstan investment block
+- `interlex/src/app/ge/page.tsx` now links to `/projects` from the Georgia investment block
+- `interlex/src/app/projects/page.tsx` now links back to `/kz` and `/ge`
+
+### Open
+- Re-run build after the cross-link update
+
+### Item
+Direct WhatsApp contact links for the two jurisdiction desks.
+
+### Completed
+- Replaced the placeholder Kazakhstan phone line with a direct WhatsApp link using `+7 700 007 0021`
+- Replaced the placeholder Georgia phone line with a direct WhatsApp link using `+995 591 458 182`
+- Kept the existing desk emails in place alongside the new WhatsApp contact actions
+
+### Evidence
+- `interlex/src/app/contacts/page.tsx` now links to `https://wa.me/77000070021`
+- `interlex/src/app/contacts/page.tsx` now links to `https://wa.me/995591458182`
+
+### Open
+- Re-run build after the WhatsApp contact update
