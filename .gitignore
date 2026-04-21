@@ -15,3 +15,21 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# IDE (не участвуют в сборке сайта)
+.idea/
+
+# Временные файлы Office
+~$*
+
+# Презентации и документы в корне репозитория (не Next.js)
+/*.pptx
+/*.docx
+
+# Архив логотипов — в репозитории достаточно распакованных файлов в logo/
+/logo.zip
+
+# Экспорты Stitch: статичные HTML и скриншоты не входят в приложение;
+# скрипт выгрузки при необходимости остаётся отслеживаемым.
+/design/stitch-exports/*
+!/design/stitch-exports/download_screens.ps1

@@ -46,7 +46,7 @@ InteLex/
 │   ├── spec/                    # ТЗ, sitemap, scope, content plan, dev task list
 │   └── deploy/
 │       └── coolify.md           # Инструкция по деплою в Coolify
-├── design/                      # Дизайн-материалы и Stitch exports
+├── design/                      # Локальные макеты; экспорты Stitch в design/stitch-exports/ не в git (см. .gitignore)
 ├── logo/                        # Исходные логотипы бренда
 ├── interlex/                    # Основное Next.js-приложение
 │   ├── package.json             # Скрипты приложения: dev, build, start, lint
