@@ -2,20 +2,15 @@ import { withFallbackLocales, type ContentLocale, type Locale } from "@/lib/i18n
 
 const contactsMetaBase: Record<ContentLocale, { title: string; description: string }> = {
   en: {
-    title: "Contact Us | InterLex",
-    description:
-      "Reach out to InterLex for confidential corporate guidance in Kazakhstan and Georgia.",
+    title: "Contact | InterLex",
+    description: "Contact InterLex for confidential legal and business advisory in Kazakhstan and Georgia.",
   },
   ru: {
     title: "Контакты | InterLex",
-    description:
-      "Свяжитесь с InterLex для конфиденциального консалтинга в Казахстане и Грузии.",
-  },
-  zh: {
-    title: "联系我们 | InterLex",
-    description: "就哈萨克斯坦与格鲁吉亚的企业事务联系 InterLex。",
+    description: "Свяжитесь с InterLex для конфиденциального юридического и бизнес-консалтинга по Казахстану и Грузии.",
   },
 };
+
 export const contactsMeta: Record<Locale, { title: string; description: string }> = withFallbackLocales(contactsMetaBase);
 
 export type ContactsMessages = {
@@ -33,43 +28,29 @@ export type ContactsMessages = {
 
 const contactsMessagesBase: Record<ContentLocale, ContactsMessages> = {
   en: {
-    h1Line1: "Global Presence,",
-    h1Line2: "Local Precision.",
-    lead:
-      "Contact our international hubs in the AIFC and Tbilisi. We provide definitive cross-border corporate architecture and advisory services.",
-    kzHub: "Kazakhstan Hub",
-    kzJur: "AIFC Jurisdiction",
-    geHub: "Georgia Hub",
-    geNode: "European Node",
+    h1Line1: "Global presence,",
+    h1Line2: "local precision.",
+    lead: "Speak with our teams in Kazakhstan and Georgia about cross-border structuring, regulatory support, and market entry.",
+    kzHub: "Kazakhstan Desk",
+    kzJur: "AIFC and mainland support",
+    geHub: "Georgia Desk",
+    geNode: "Corporate and FIZ support",
     emailLabel: "Email:",
     telLabel: "Tel:",
-    directTitle: "Direct Communication",
+    directTitle: "Direct communication",
   },
   ru: {
     h1Line1: "Глобальное присутствие,",
     h1Line2: "локальная точность.",
-    lead:
-      "Наши хабы в AIFC и Тбилиси. Трансграничная корпоративная архитектура и консалтинг.",
-    kzHub: "Хаб Казахстан",
-    kzJur: "Юрисдикция AIFC",
-    geHub: "Хаб Грузия",
-    geNode: "Европейский узел",
+    lead: "Свяжитесь с командами InterLex в Казахстане и Грузии по вопросам трансграничного структурирования, комплаенса и выхода на рынок.",
+    kzHub: "Казахстанское направление",
+    kzJur: "AIFC и mainland-практика",
+    geHub: "Грузинское направление",
+    geNode: "Корпоративная и FIZ-практика",
     emailLabel: "Email:",
     telLabel: "Тел.:",
     directTitle: "Прямая связь",
   },
-  zh: {
-    h1Line1: "全球布局，",
-    h1Line2: "本地精准。",
-    lead:
-      "联系我们在 AIFC 和第比利斯的国际办公室。提供跨境架构与企业顾问服务。",
-    kzHub: "哈萨克斯坦办公室",
-    kzJur: "AIFC 司法管辖区",
-    geHub: "格鲁吉亚办公室",
-    geNode: "欧洲节点",
-    emailLabel: "邮箱：",
-    telLabel: "电话：",
-    directTitle: "直接沟通",
-  },
 };
+
 export const contactsMessages: Record<Locale, ContactsMessages> = withFallbackLocales(contactsMessagesBase);

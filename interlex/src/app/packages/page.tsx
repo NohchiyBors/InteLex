@@ -1,5 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  ArrowRightIcon,
+  BalanceScaleIcon,
+  CheckIcon,
+  ShieldIcon,
+  XCircleIcon,
+} from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { packagesMeta, packagesMessages } from "@/lib/i18n/messages/packages";
 
@@ -29,10 +37,13 @@ export default async function PackagesPage() {
           </div>
         </div>
         <div className="relative h-96 w-full">
-          <img
+          <Image
             alt={t.imgAlt}
             className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-80"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSUGIWPOjguQ3z2MOBQJSrU8Gtwje_SlNvCwbn8ORg8nyMkSCpXsaYCbrq90pfurNfR_t2uqMaXcww1KlRrOla08yb3dLQ2RAULr1NRNq-JYsyufOwDN0hnVJ85RfKBAm6RxKTEbxUMlC9cmYYpG80-7LtmHmas9oZEP8Yy6nWI5LQsQ-t3uxSDI6-gBTY0vfXAE-uAidQSQQM2hL-GZqjSnwdXuVe7tzNlO4L9QYgsSTMZGJPQXEfUb1MSrRh4aBMGp0ND2GbXD0"
+            fill
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            src="/images/hero/packages-hero.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-surface to-transparent"></div>
         </div>
@@ -50,19 +61,19 @@ export default async function PackagesPage() {
               </div>
               <ul className="flex-grow flex flex-col gap-4 mb-8 font-body text-sm text-on-surface">
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t1f1}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t1f2}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t1f3}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t1f4}</span>
                 </li>
               </ul>
@@ -82,23 +93,23 @@ export default async function PackagesPage() {
               </div>
               <ul className="flex-grow flex flex-col gap-4 mb-8 font-body text-sm text-on-primary/90">
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-fixed text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary-fixed" />
                   <span>{t.t2f1}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-fixed text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary-fixed" />
                   <span>{t.t2f2}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-fixed text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary-fixed" />
                   <span>{t.t2f3}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-fixed text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary-fixed" />
                   <span>{t.t2f4}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-fixed text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary-fixed" />
                   <span>{t.t2f5}</span>
                 </li>
               </ul>
@@ -115,23 +126,23 @@ export default async function PackagesPage() {
               </div>
               <ul className="flex-grow flex flex-col gap-4 mb-8 font-body text-sm text-on-surface">
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t3f1}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t3f2}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t3f3}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t3f4}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-[18px] w-[18px] text-secondary" />
                   <span>{t.t3f5}</span>
                 </li>
               </ul>
@@ -171,13 +182,13 @@ export default async function PackagesPage() {
               <tr className="hover:bg-surface-container-low/50 transition-colors">
                 <td className="py-6 font-medium text-on-surface">{t.r3h}</td>
                 <td className="py-6 px-4 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-outline">close</span>
+                  <XCircleIcon className="h-5 w-5 text-outline" />
                 </td>
                 <td className="py-6 px-4 text-secondary">
-                  <span className="material-symbols-outlined">check</span>
+                  <CheckIcon className="h-5 w-5" />
                 </td>
                 <td className="py-6 px-4 text-secondary">
-                  <span className="material-symbols-outlined">check</span>
+                  <CheckIcon className="h-5 w-5" />
                 </td>
               </tr>
               <tr className="hover:bg-surface-container-low/50 transition-colors">
@@ -189,7 +200,7 @@ export default async function PackagesPage() {
               <tr className="hover:bg-surface-container-low/50 transition-colors">
                 <td className="py-6 font-medium text-on-surface">{t.r5h}</td>
                 <td className="py-6 px-4 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-outline">close</span>
+                  <XCircleIcon className="h-5 w-5 text-outline" />
                 </td>
                 <td className="py-6 px-4 text-on-surface-variant">{t.r5b}</td>
                 <td className="py-6 px-4 text-secondary">{t.r5c}</td>
@@ -208,17 +219,17 @@ export default async function PackagesPage() {
             <p className="font-body text-on-primary-container mb-8">{t.maLead}</p>
             <Link className="inline-flex items-center gap-2 text-secondary font-label text-sm uppercase tracking-widest hover:text-secondary-fixed transition-colors" href="/services">
               <span>{t.maLink}</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </div>
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-surface-container-low/10 p-8 backdrop-blur-sm border border-on-primary/10">
-              <span className="material-symbols-outlined text-secondary text-3xl mb-4">balance</span>
+              <BalanceScaleIcon className="mb-4 h-8 w-8 text-secondary" />
               <h4 className="font-headline text-xl mb-3">{t.maC1Title}</h4>
               <p className="font-body text-sm text-on-primary-container">{t.maC1Body}</p>
             </div>
             <div className="bg-surface-container-low/10 p-8 backdrop-blur-sm border border-on-primary/10">
-              <span className="material-symbols-outlined text-secondary text-3xl mb-4">shield</span>
+              <ShieldIcon className="mb-4 h-8 w-8 text-secondary" />
               <h4 className="font-headline text-xl mb-3">{t.maC2Title}</h4>
               <p className="font-body text-sm text-on-primary-container">{t.maC2Body}</p>
             </div>

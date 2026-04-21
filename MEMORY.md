@@ -1,87 +1,30 @@
-# MEMORY: InterLex Website
+# MEMORY: InterLex
 
-## Идентичность проекта
-- Проект: `InterLex`
-- Основной workspace: `D:\Data\OneDrive\source\www\InteLex`
-- Приложение: `D:\Data\OneDrive\source\www\InteLex\interlex`
-- Документы проекта: `D:\Data\OneDrive\source\www\InteLex\docs\spec`
+## Identity
+- Project: `InterLex`
+- Workspace: `D:\Data\OneDrive\source\www\InteLex`
+- App: `D:\Data\OneDrive\source\www\InteLex\interlex`
 
-## Устойчивые цели
-- Запустить полноценный корпоративный сайт `InterLex` с каталогом услуг.
-- Сделать сайт пригодным для лидогенерации, SEO и мультиязычной работы на двух доменах.
-- Поддержать две ключевые юрисдикции: Казахстан и Грузия.
+## Stable Rules
+- Brand name is `InterLex`
+- `interlex.kz` is RU-first
+- `interlex.ge` is EN-first
+- `kk` falls back to `ru`
+- `ka` falls back to `en`
+- Site remains a service-catalog website, not a landing-page reframing
 
-## Уже принятые решения
-- Решение: использовать `Next.js + TypeScript + Tailwind CSS`.
-  Причина: это уже выбранный и частично реализованный стек проекта.
-- Решение: сайт проектируется как полноценный corporate website, а не как landing page.
-  Причина: большой объём услуг, две юрисдикции, SEO и мультиязычность.
-- Решение: основная доменная логика такая:
-  Причина: она согласована с пользователем и влияет на i18n и SEO.
-  - `interlex.kz` -> `RU`
-  - `interlex.ge` -> `EN`
-- Решение: дополнительные локали `ZH`, `KK`, `KA` должны быть предусмотрены в архитектуре.
-  Причина: они уже зафиксированы в документах и в коде.
-- Решение: основной бренд пишется как `InterLex`.
-  Причина: это явное указание пользователя.
-- Решение: для деплоя в Coolify использовать `Dockerfile`, а не полагаться на автоопределение.
-  Причина: приложение находится в подпапке `interlex/`, а Dockerfile даёт предсказуемый build/runtime.
+## Current Implementation Facts
+- Material Symbols were removed from the app shell and page components
+- Local SVG React icons now live in `interlex/src/components/ui/icons.tsx`
+- Critical hero images are now stored under `interlex/public/images/hero`
+- Critical hero rendering now uses `next/image`
+- Broken message files were replaced with clean UTF-8 content
+- `zh` is currently normalized to English fallback to avoid broken or partial translations
+- Language switcher ordering now follows locale group priority:
+- `ru/kk -> ru, kk, zh, en, ka`
+- `en/ka -> en, ka, zh, ru, kk`
 
-## Жёсткие правила
-- Не использовать терминологию `MVP` как основную рамку проекта.
-- Не отклоняться в сторону лендинга; базовая модель это service catalog website.
-- Доменные имена оставлять в lowercase: `interlex.kz`, `interlex.ge`.
-- В коде не откатывать чужие изменения без явного запроса.
-
-## Формулы и соответствия
-- Primary locale by host:
-  - `.kz` = `ru`
-  - `.ge` = `en`
-- Fallback locales:
-  - `kk` -> `ru`
-  - `ka` -> `en`
-- Primary content sections:
-  - `Home`
-  - `Services Catalog`
-  - `Jurisdictions`
-  - `Packages`
-  - `Contacts`
-
-## Критические зависимости
-- Документы-спецификации в `docs/spec`
-- Рабочий Next.js-проект в `interlex`
-- Google Drive-материалы по пакетам, sales funnel, GR и investment catalog
-- Production deployment files:
-  - `Dockerfile`
-  - `.dockerignore`
-  - `docs/deploy/coolify.md`
-  - `AGENTS.md`
-  - `README.md`
-
-## Известные ограничения
-- `KK` и `KA` пока не имеют полного собственного контента и используют fallback.
-- CMS пока не подключена.
-- В проекте остаются lint warnings по `<img>` и внешнему font link.
-- Живой контейнерный деплой в Coolify ещё не был проверен на целевом сервере.
-
-## Важные ссылки и артефакты
-- Спецификация: `docs/spec/01_structured_tz.md`
-- Карта сайта: `docs/spec/02_sitemap_and_page_blocks.md`
-- Scope запуска: `docs/spec/03_launch_scope.md`
-- Таск-лист разработки: `docs/spec/05_dev_task_list.md`
-- Stitch prompt: `docs/spec/06_stitch_prompt.md`
-- Coolify deployment note: `docs/deploy/coolify.md`
-- Dockerfile: `Dockerfile`
-- Project instructions: `AGENTS.md`
-- Repository structure overview: `README.md`
-- i18n: `interlex/src/lib/i18n.ts`
-- Service catalog data: `interlex/src/lib/services.ts`
-
-## Что нельзя потерять
-- Сайт не лендинг, а полноценный корпоративный сайт с каталогом услуг.
-- Брендовая форма: `InterLex`.
-- Доменная стратегия:
-  - `interlex.kz` — RU-first
-  - `interlex.ge` — EN-first
-- Дополнительные языки предусмотрены архитектурно: `ZH / KK / KA`.
-- Локальный production build проходит с текущей конфигурацией.
+## Known Follow-up Items
+- Coolify redeploy still needs to be triggered after push
+- Dual lockfiles cause a Next.js workspace-root warning during build
+- Full visual QA on mobile still remains desirable

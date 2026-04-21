@@ -1,49 +1,29 @@
 # PROJECT RESUME
 
-Date: `2026-04-20 15:35:00 +05:00`
-Project: `InterLex Website`
+Date: `2026-04-21`
+Project: `InterLex`
 Session owner: `Codex`
 
-## Где находимся
-- Текущая фаза: `Подготовка production deployment и выравнивание архитектуры`
-- Общий статус: `В работе`
-- Последний подтверждённый результат: `Проект подготовлен к контейнерному деплою в Coolify, снабжён корневым AGENTS.md и структурным README.md: добавлены standalone build, Dockerfile, .dockerignore, /api/health, env-aware metadataBase и проектные правила; production build проходит локально.`
+## Where The Work Landed
+- Status: `in progress, code fixes complete`
+- Main completed scope:
+- Removed Google Material Symbols dependency from the app
+- Replaced all icon-font usages with local SVG icon components
+- Localized critical hero assets into the repository
+- Cleaned broken mojibake text in `messages/*`, `services.ts`, and shared locale chrome
+- Normalized locale fallback behavior for `kk`, `ka`, and temporary `zh`
+- Verified local build and route-level dev smoke checks
 
-## Следующий шаг
-- `Развернуть контейнер в Coolify и задать доменные env-переменные, затем продолжить SEO и контентную доработку.`
+## Verified Commands
+- `npm install` in repo root
+- `npm run build` in repo root
+- `npm run dev` in repo root, followed by HTTP checks against `/`, `/kz`, `/ge`, `/services`, `/packages`
 
-## Снимок прогресса
-- Завершено: `документы, базовый каркас сайта, i18n-архитектура, доменная логика, язык-switcher, базовый каталог услуг, логотипы, Coolify deployment baseline, корневой AGENTS.md, структурный README.md`
-- В работе: `сведение кода, контента и SEO-архитектуры к единой production-модели`
-- Осталось: `CMS, углубление service pages, чистка warnings, расширение контента и metadata, настройка env по доменам в Coolify`
+## Remaining Work
+- Commit the changes
+- Push to `main`
+- Restart Coolify deploys for the live app instances
 
-## Блокеры
-- `Нет жёсткого блокера`
-- Наблюдаемые риски:
-  - часть контента пока черновая
-  - локали `KK` и `KA` пока fallback-only
-  - контейнер ещё не проверен на реальном Coolify instance
-
-## Ключевые правила
-- Использовать `StatusProject` для фиксации состояния между сессиями.
-- Держать бренд в форме `InterLex`.
-- Не возвращаться к framing через `MVP` и `landing page`.
-- Сохранять доменную логику `interlex.kz -> RU`, `interlex.ge -> EN`.
-
-## Важные файлы
-- `TODO.md`
-- `MEMORY.md`
-- `PROJECT-RESUME.md`
-- `STATUS-LOG.md`
-- `README.md`
-- `docs/spec/01_structured_tz.md`
-- `AGENTS.md`
-- `docs/deploy/coolify.md`
-- `Dockerfile`
-- `interlex/src/lib/i18n.ts`
-- `interlex/src/lib/services.ts`
-
-## Заметки для следующей сессии
-- Стартовать с: `TODO.md`, `MEMORY.md`, `PROJECT-RESUME.md`, `STATUS-LOG.md`
-- Перепроверить: настройки ресурса Coolify и `NEXT_PUBLIC_SITE_URL`
-- Не забыть: `/api/health` уже добавлен для post-deploy проверки
+## Notes For Next Session
+- If build fails with `EBUSY` on `interlex/.next/standalone`, check for leftover local `next dev` or `next start` processes and stop them before rebuilding
+- If the Next.js root warning becomes noisy, either remove the extra lockfile or set `turbopack.root`

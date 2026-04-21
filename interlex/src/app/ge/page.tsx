@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRightIcon, BankIcon, GlobeIcon, SpeedIcon } from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { geMeta, geMessages } from "@/lib/i18n/messages/ge";
 
@@ -27,10 +29,13 @@ export default async function GeorgiaPage() {
         </div>
         <div className="md:w-7/12 relative h-[500px] md:h-[700px] w-full">
           <div className="absolute inset-0 bg-surface-container-low translate-x-4 translate-y-4"></div>
-          <img
+          <Image
             alt=""
             className="absolute inset-0 w-full h-full object-cover grayscale-[20%] contrast-125"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtkEAFan28ht9-tbDcb6WCdnVyibY0hyT7Hf4hBjLzYpiAxgNw0lu-ikVEG64DGuTQioHgmcdot09-8zLPgKAjX6gbHYp62sPKgba6xJ8FF_yo2eO65yDHATeajtWz31f-J78gP71VoJUQwQHT5Lk3ruP7nylSfU3clDJi83vdBuycGtz7yEkDAqg-yxpBjB8TFYTYV9vJQe4uo52jbDg_h-x_hs4AKCpyxDvil-CDbi2nnD_H7h54JWLrDjFMbE64Zdshaj5PQB4"
+            fill
+            priority
+            sizes="(min-width: 768px) 58vw, 100vw"
+            src="/images/hero/georgia-hero.jpg"
           />
         </div>
       </section>
@@ -44,21 +49,21 @@ export default async function GeorgiaPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-surface-container-lowest p-10 shadow-[0_20px_40px_-10px_rgba(25,28,30,0.04)] h-full flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500">
               <div>
-                <span className="material-symbols-outlined text-secondary text-4xl mb-6 font-light">account_balance</span>
+                <BankIcon className="mb-6 h-10 w-10 text-secondary" />
                 <h3 className="font-headline text-2xl text-primary mb-4">{t.ad1Title}</h3>
                 <p className="font-body text-on-surface-variant text-sm leading-relaxed">{t.ad1Body}</p>
               </div>
             </div>
             <div className="bg-surface-container-lowest p-10 shadow-[0_20px_40px_-10px_rgba(25,28,30,0.04)] h-full flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500">
               <div>
-                <span className="material-symbols-outlined text-secondary text-4xl mb-6 font-light">language</span>
+                <GlobeIcon className="mb-6 h-10 w-10 text-secondary" />
                 <h3 className="font-headline text-2xl text-primary mb-4">{t.ad2Title}</h3>
                 <p className="font-body text-on-surface-variant text-sm leading-relaxed">{t.ad2Body}</p>
               </div>
             </div>
             <div className="bg-surface-container-lowest p-10 shadow-[0_20px_40px_-10px_rgba(25,28,30,0.04)] h-full flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500">
               <div>
-                <span className="material-symbols-outlined text-secondary text-4xl mb-6 font-light">speed</span>
+                <SpeedIcon className="mb-6 h-10 w-10 text-secondary" />
                 <h3 className="font-headline text-2xl text-primary mb-4">{t.ad3Title}</h3>
                 <p className="font-body text-on-surface-variant text-sm leading-relaxed">{t.ad3Body}</p>
               </div>
@@ -110,7 +115,7 @@ export default async function GeorgiaPage() {
               <p className="font-body text-inverse-on-surface/70 max-w-xl">{t.fizLead}</p>
             </div>
             <Link className="font-body text-sm text-secondary hover:text-white transition-colors duration-300 flex items-center gap-2 mt-6 md:mt-0 uppercase tracking-widest" href="/services">
-              {t.fizLink} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              {t.fizLink} <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-on-primary/10">

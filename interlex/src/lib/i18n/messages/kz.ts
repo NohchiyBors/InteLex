@@ -3,18 +3,14 @@ import { withFallbackLocales, type ContentLocale, type Locale } from "@/lib/i18n
 const kzMetaBase: Record<ContentLocale, { title: string; description: string }> = {
   en: {
     title: "Kazakhstan | InterLex",
-    description: "Corporate presence in Central Asia's premier financial hub (AIFC).",
+    description: "AIFC, mainland, and investor-entry advisory for Kazakhstan.",
   },
   ru: {
     title: "Казахстан | InterLex",
-    description:
-      "Корпоративное присутствие в ключевом финансовом хабе Центральной Азии (AIFC).",
-  },
-  zh: {
-    title: "哈萨克斯坦 | InterLex",
-    description: "在中亚首要金融中心（AIFC）建立企业布局。",
+    description: "Консалтинг по AIFC, mainland-структурам и инвесторскому входу в Казахстан.",
   },
 };
+
 export const kzMeta: Record<Locale, { title: string; description: string }> = withFallbackLocales(kzMetaBase);
 
 export type KzMessages = {
@@ -52,125 +48,69 @@ export type KzMessages = {
 
 const kzMessagesBase: Record<ContentLocale, KzMessages> = {
   en: {
-    heroTitle1: "The Sovereignty",
-    heroTitle2: "of the Steppe",
-    heroLead:
-      "Establishing a corporate presence in Central Asia’s premier financial hub. A jurisdiction defined by progressive legal frameworks, strategic geography, and institutional stability.",
-    adv1Title: "Common Law Framework",
-    adv1Body:
-      "The Astana International Financial Centre (AIFC) operates on a distinct legal framework based on the principles, norms, and precedents of the law of England and Wales.",
-    adv2Title: "Tax Optimization",
-    adv2Body:
-      "Favorable tax regimes including exemptions from corporate income tax, property tax, and land tax for up to 50 years within designated Free Economic Zones and the AIFC.",
-    adv3Title: "Strategic Logistics",
-    adv3Body:
-      "The critical nexus of the Middle Corridor, connecting Chinese manufacturing hubs to European markets, offering unparalleled logistical advantages for trade and transit.",
-    coreTitle: "Core Advisory Services",
-    viewAll: "View Full Capabilities",
-    svc1Title: "Corporate Structuring",
-    svc1Body:
-      "End-to-end registration of Limited Liability Partnerships (LLPs), Joint Stock Companies, and branches. Navigating local ownership requirements and AIFC entity formation.",
-    svc1Cta: "Initiate Incorporation",
-    svc2Title: "Tax & Compliance",
-    svc2Body:
-      "Strategic tax planning, transfer pricing advisory, and ongoing regulatory compliance. Ensuring seamless alignment with the State Revenue Committee and international treaties.",
-    svc2Cta: "Request Consultation",
-    zonesTitle: "Economic Zones Directory",
-    aifcTag: "Financial Hub",
-    aifcTitle: "AIFC (Astana International Financial Centre)",
-    aifcBody:
-      "An independent jurisdiction with its own civil and commercial law. Offers 50-year tax exemptions and a specialized arbitration center.",
+    heroTitle1: "Kazakhstan",
+    heroTitle2: "for regional expansion",
+    heroLead: "InterLex builds Kazakhstan entry strategies across AIFC, mainland corporate law, industrial zones, tax positioning, and investor-facing structures.",
+    adv1Title: "AIFC plus mainland logic",
+    adv1Body: "We align the right balance between AIFC instruments, local legal forms, and operational realities in Kazakhstan.",
+    adv2Title: "Industrial and tax positioning",
+    adv2Body: "We compare special regimes, logistics zones, and structuring options for trade, manufacturing, and technology businesses.",
+    adv3Title: "Institutional execution",
+    adv3Body: "Registration, reporting, banking, and post-launch compliance are treated as one continuous operating track.",
+    coreTitle: "Core services",
+    viewAll: "View all services",
+    svc1Title: "Registration and structuring",
+    svc1Body: "LLP, JSC, branch, and AIFC entity setup with ownership, governance, and document architecture aligned from the start.",
+    svc1Cta: "Start setup",
+    svc2Title: "Tax and compliance",
+    svc2Body: "Tax logic, accounting supervision, transfer pricing support, and ongoing regulatory maintenance for operating groups.",
+    svc2Cta: "Request advisory",
+    zonesTitle: "Strategic zones and platforms",
+    aifcTag: "Financial hub",
+    aifcTitle: "AIFC",
+    aifcBody: "A distinct legal and regulatory platform for finance, investment, holding structures, and internationally oriented corporate projects.",
     tagFintech: "Fintech",
-    tagAsset: "Asset Management",
-    tagIslamic: "Islamic Finance",
+    tagAsset: "Asset management",
+    tagIslamic: "Islamic finance",
     khTitle: "Khorgos Eastern Gate",
-    khBody:
-      "The premier logistics and industrial hub on the Kazakh-Chinese border.",
-    khLink: "Explore Logistics Advantages",
+    khBody: "A logistics and trade platform for border-linked supply chains, warehousing, and industrial routing.",
+    khLink: "Logistics advantages",
     pitTitle: "Park of Innovative Technologies",
-    pitBody:
-      "Almaty's IT and R&D zone offering targeted incentives for tech enterprises.",
-    pitLink: "Review IT Incentives",
+    pitBody: "A technology-focused environment for IT, R&D, and innovation-driven operating models.",
+    pitLink: "Technology incentives",
   },
   ru: {
-    heroTitle1: "Суверенитет",
-    heroTitle2: "степи",
-    heroLead:
-      "Корпоративное присутствие в ведущем финансовом центре Центральной Азии. Юрисдикция с современным правом, выгодной географией и стабильными институтами.",
-    adv1Title: "Рамка общего права",
-    adv1Body:
-      "МФЦА (AIFC) использует правовую модель на основе принципов и прецедентов права Англии и Уэльса.",
-    adv2Title: "Налоговая оптимизация",
-    adv2Body:
-      "Льготные режимы: освобождения от налога на прибыль, имущества и земли до 50 лет в СЭЗ и AIFC.",
-    adv3Title: "Стратегическая логистика",
-    adv3Body:
-      "Узел Срединного коридора между производством в Китае и рынками Европы.",
+    heroTitle1: "Казахстан",
+    heroTitle2: "для регионального роста",
+    heroLead: "InterLex выстраивает траекторию входа в Казахстан через AIFC, mainland-структуры, индустриальные зоны, налоговую модель и инвесторскую упаковку.",
+    adv1Title: "Связка AIFC и mainland",
+    adv1Body: "Подбираем правильный баланс между инструментами AIFC, локальными юрформами и операционной реальностью в Казахстане.",
+    adv2Title: "Индустриальная и налоговая логика",
+    adv2Body: "Сравниваем специальные режимы, логистические зоны и структурирование для торговли, производства и технологических компаний.",
+    adv3Title: "Институциональное исполнение",
+    adv3Body: "Регистрация, отчётность, банки и постзапусковой комплаенс рассматриваются как единая операционная траектория.",
     coreTitle: "Ключевые услуги",
-    viewAll: "Все компетенции",
-    svc1Title: "Корпоративное структурирование",
-    svc1Body:
-      "Регистрация ТОО, АО, филиалов; требования к собственности и создание субъектов AIFC.",
-    svc1Cta: "Начать регистрацию",
+    viewAll: "Смотреть все услуги",
+    svc1Title: "Регистрация и структурирование",
+    svc1Body: "Регистрация ТОО, АО, филиалов и субъектов AIFC с заранее выстроенной логикой владения, governance и документации.",
+    svc1Cta: "Начать запуск",
     svc2Title: "Налоги и комплаенс",
-    svc2Body:
-      "Налоговое планирование, трансфертное ценообразование и комплаенс с ГНС и международными соглашениями.",
-    svc2Cta: "Запросить консультацию",
-    zonesTitle: "Каталог экономических зон",
+    svc2Body: "Налоговая модель, бухгалтерский контроль, поддержка по трансфертному ценообразованию и постоянное регуляторное сопровождение.",
+    svc2Cta: "Запросить сопровождение",
+    zonesTitle: "Стратегические зоны и платформы",
     aifcTag: "Финансовый хаб",
-    aifcTitle: "МФЦА (Astana International Financial Centre)",
-    aifcBody:
-      "Отдельная юрисдикция с собственным гражданским и торговым правом; льготы до 50 лет и арбитраж.",
+    aifcTitle: "AIFC",
+    aifcBody: "Отдельная правовая и регуляторная платформа для финансовых, инвестиционных, холдинговых и международно ориентированных проектов.",
     tagFintech: "Финтех",
     tagAsset: "Управление активами",
     tagIslamic: "Исламские финансы",
     khTitle: "Хоргос Восточные ворота",
-    khBody:
-      "Крупнейший логистический и промышленный узел на казахстанско-китайской границе.",
+    khBody: "Логистическая и торговая платформа для приграничных supply-chain моделей, складской инфраструктуры и индустриальных маршрутов.",
     khLink: "Логистические преимущества",
     pitTitle: "Парк инновационных технологий",
-    pitBody:
-      "IT и НИОКР в Алматы — целевые стимулы для технологических компаний.",
-    pitLink: "IT-льготы",
-  },
-  zh: {
-    heroTitle1: "草原上的",
-    heroTitle2: "主权力量",
-    heroLead:
-      "在中亚领先的金融中心建立企业存在；以现代法律框架、地缘与制度稳定为核心。",
-    adv1Title: "普通法体系",
-    adv1Body:
-      "阿斯塔纳国际金融中心（AIFC）基于英格兰与威尔士法律原则与判例构建独立框架。",
-    adv2Title: "税务优化",
-    adv2Body:
-      "优越税制：指定自由经济区与 AIFC 内企业所得税、房产税、土地税等可最长豁免 50 年。",
-    adv3Title: "战略物流",
-    adv3Body:
-      "中欧走廊关键节点，连接中国制造与欧洲市场，贸易与过境优势突出。",
-    coreTitle: "核心顾问服务",
-    viewAll: "查看全部能力",
-    svc1Title: "公司架构",
-    svc1Body:
-      "有限责任公司、股份公司与分支机构全流程注册；本地持股与 AIFC 主体设立。",
-    svc1Cta: "启动注册",
-    svc2Title: "税务与合规",
-    svc2Body:
-      "税务筹划、转让定价与持续合规；对接国家税务委员会与国际协定。",
-    svc2Cta: "预约咨询",
-    zonesTitle: "经济特区目录",
-    aifcTag: "金融枢纽",
-    aifcTitle: "AIFC（阿斯塔纳国际金融中心）",
-    aifcBody:
-      "独立司法辖区，自带民商法律体系；最长五十年税务豁免及专业仲裁中心。",
-    tagFintech: "金融科技",
-    tagAsset: "资产管理",
-    tagIslamic: "伊斯兰金融",
-    khTitle: "霍尔果斯东门",
-    khBody: "中哈边境领先的物流与工业枢纽。",
-    khLink: "了解物流优势",
-    pitTitle: "创新技术园区",
-    pitBody: "阿拉木图 IT 与研发特区，面向科技企业提供定向激励。",
-    pitLink: "查看 IT 激励",
+    pitBody: "Технологическая среда для IT, R&D и инновационных операционных моделей.",
+    pitLink: "Технологические стимулы",
   },
 };
+
 export const kzMessages: Record<Locale, KzMessages> = withFallbackLocales(kzMessagesBase);

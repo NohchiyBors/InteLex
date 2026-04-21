@@ -3,19 +3,14 @@ import { withFallbackLocales, type ContentLocale, type Locale } from "@/lib/i18n
 const geMetaBase: Record<ContentLocale, { title: string; description: string }> = {
   en: {
     title: "Georgia | InterLex",
-    description:
-      "European operational standards and Eurasian market access in Georgia.",
+    description: "Corporate, FIZ, and market-entry advisory for Georgia.",
   },
   ru: {
     title: "Грузия | InterLex",
-    description:
-      "Европейские стандарты ведения бизнеса и доступ к евразийским рынкам.",
-  },
-  zh: {
-    title: "格鲁吉亚 | InterLex",
-    description: "欧洲运营标准与欧亚市场准入的结合。",
+    description: "Корпоративный, FIZ- и market-entry консалтинг по Грузии.",
   },
 };
+
 export const geMeta: Record<Locale, { title: string; description: string }> = withFallbackLocales(geMetaBase);
 
 export type GeMessages = {
@@ -58,152 +53,79 @@ export type GeMessages = {
 
 const geMessagesBase: Record<ContentLocale, GeMessages> = {
   en: {
-    heroTitle1: "The Georgia",
-    heroTitle2: "Jurisdiction",
-    heroLead:
-      "A strategic convergence of European operational standards and Eurasian market access. We engineer robust corporate structures within Georgia's low-tax and free industrial frameworks.",
-    heroCta: "Initiate Consultation",
-    stratTitle: "Strategic Advantages",
-    stratLead:
-      "Leveraging sovereign incentives for optimized global operations.",
-    ad1Title: "Territorial Tax System",
-    ad1Body:
-      "Corporate tax is only applied upon distribution of dividends. Reinvested profits are exempt, creating an optimal environment for growth and capital accumulation.",
-    ad2Title: "Strategic Geography",
-    ad2Body:
-      "Functioning as a critical nexus point on the Middle Corridor, offering duty-free access to major markets through comprehensive Free Trade Agreements (DCFTA, China, CIS).",
-    ad3Title: "Operational Velocity",
-    ad3Body:
-      "Renowned for minimal bureaucratic friction. Entity incorporation and banking relationships can be established with unprecedented speed and efficiency.",
+    heroTitle1: "Georgia",
+    heroTitle2: "as an operating base",
+    heroLead: "InterLex structures Georgian companies, FIZ setups, investor vehicles, and operating models for regional trade, services, and production businesses.",
+    heroCta: "Request consultation",
+    stratTitle: "Why Georgia",
+    stratLead: "A practical jurisdiction for corporate entry, tax planning, trade routing, and investor-friendly operating structures.",
+    ad1Title: "Territorial taxation",
+    ad1Body: "A workable tax model for retained earnings, operational efficiency, and controlled distributions.",
+    ad2Title: "Trade connectivity",
+    ad2Body: "Georgia links the Caucasus, Europe, Türkiye, and wider Eurasian routes through logistics and treaty access.",
+    ad3Title: "Fast execution",
+    ad3Body: "Entity registration, FIZ assessment, and operational launch can move quickly with the right paperwork and banking path.",
     coreTitle: "Core",
-    coreSubtitle: "Capabilities",
-    cap1Title: "Corporate Structuring & Formation",
-    cap1Body:
-      "Bespoke entity design, balancing liability protection with operational fluidity. We handle complete lifecycle registration across standard and specialized zones.",
-    cap2Title: "Free Industrial Zone Licensing",
-    cap2Body:
-      "Navigation and procurement of FIZ status, unlocking zero percent corporate profit, dividend, and property tax incentives for qualified trading and manufacturing entities.",
-    cap3Title: "Regulatory & Banking Navigation",
-    cap3Body:
-      "Facilitating institutional banking relationships and ensuring rigorous compliance with local AML/KYC directives and international reporting standards.",
+    coreSubtitle: "capabilities",
+    cap1Title: "Company formation and structuring",
+    cap1Body: "We register companies, branches, SPVs, and holding structures aligned with ownership, tax, and operational goals.",
+    cap2Title: "FIZ and special regimes",
+    cap2Body: "We compare Free Industrial Zones and related incentives for trade, manufacturing, and export-oriented models.",
+    cap3Title: "Banking and compliance support",
+    cap3Body: "We coordinate KYC packs, banking logic, corporate maintenance, and local reporting continuity.",
     fizTitle: "Free Industrial Zones",
-    fizLead:
-      "Tax-exempt jurisdictions tailored for international trade, logistics, and manufacturing.",
-    fizLink: "View Comparative Matrix",
+    fizLead: "A jurisdictional layer for trade, production, logistics, and tax-efficient operating models in Georgia.",
+    fizLink: "View services",
     potiTitle: "Poti FIZ",
-    potiTag: "Maritime Gateway",
-    potiBody:
-      "Adjacent to the largest seaport in Georgia. Optimal for heavy manufacturing, logistics, and global commodity trading. Offers direct access to rail networks.",
+    potiTag: "Port and logistics",
+    potiBody: "Strong for trade, warehousing, processing, and supply-chain models linked to maritime routes.",
     tbilisiTitle: "Tbilisi FIZ",
-    tbilisiTag: "Capital Hub",
-    tbilisiBody:
-      "Strategic location near the capital city and international airport. Preferred by IT service providers, light manufacturing, and consulting entities requiring urban proximity.",
-    hualingTitle: "Hualing FIZ (Kutaisi)",
-    hualingTag: "Eurasian Node",
-    hualingBody:
-      "Extensive infrastructure focused on trade processing and manufacturing. Excellent connectivity to Kutaisi International Airport and major highways.",
+    tbilisiTag: "Capital proximity",
+    tbilisiBody: "Relevant for urban access, services, light production, and teams that need fast coordination with the capital.",
+    hualingTitle: "Hualing FIZ",
+    hualingTag: "Commercial hub",
+    hualingBody: "Suitable for mixed trade and processing models with established infrastructure and city connectivity.",
     kutaisiTitle: "Kutaisi FIZ",
-    kutaisiTag: "Industrial Center",
-    kutaisiBody:
-      "Built on the grounds of a former automotive plant. Specialized infrastructure suitable for large-scale industrial operations and regional distribution.",
+    kutaisiTag: "Industrial potential",
+    kutaisiBody: "Useful for production and regional distribution models that need scale, land, and route flexibility.",
   },
   ru: {
-    heroTitle1: "Юрисдикция",
-    heroTitle2: "Грузии",
-    heroLead:
-      "Европейские операционные стандарты и доступ к евразийским рынкам. Надёжные корпоративные структуры в налогово льготных и свободных промышленных режимах.",
+    heroTitle1: "Грузия",
+    heroTitle2: "как операционная база",
+    heroLead: "InterLex выстраивает грузинские компании, FIZ-структуры, инвесторские SPV и операционные модели для торговли, сервисного бизнеса и производства.",
     heroCta: "Запросить консультацию",
-    stratTitle: "Стратегические преимущества",
-    stratLead:
-      "Суверенные стимулы для оптимизации глобальных операций.",
-    ad1Title: "Территориальное налогообложение",
-    ad1Body:
-      "Налог на прибыль при распределении дивидендов; реинвестированная прибыль освобождается.",
-    ad2Title: "География",
-    ad2Body:
-      "Узел Срединного коридора; безпошлинный доступ к рынкам через СЗТ (DCFTA, Китай, СНГ).",
-    ad3Title: "Скорость запуска",
-    ad3Body:
-      "Минимум бюрократии; быстрая регистрация компаний и банковские отношения.",
+    stratTitle: "Почему Грузия",
+    stratLead: "Практичная юрисдикция для корпоративного входа, налогового планирования, торговых маршрутов и инвесторских структур.",
+    ad1Title: "Территориальная налоговая логика",
+    ad1Body: "Рабочая модель для нераспределённой прибыли, операционной эффективности и управляемых дивидендов.",
+    ad2Title: "Торговая связность",
+    ad2Body: "Грузия связывает Кавказ, Европу, Турцию и более широкие евразийские маршруты через логистику и договорную сеть.",
+    ad3Title: "Быстрое исполнение",
+    ad3Body: "Регистрация компании, оценка FIZ и запуск операций могут идти быстро при правильном пакете документов и банковской траектории.",
     coreTitle: "Ключевые",
     coreSubtitle: "компетенции",
-    cap1Title: "Структурирование и регистрация",
-    cap1Body:
-      "Индивидуальный дизайн компаний; полный цикл регистрации в стандартных и специальных зонах.",
-    cap2Title: "Лицензирование СИЗ",
-    cap2Body:
-      "Получение статуса СИЗ: налог на прибыль, дивиденды и имущество — 0% для квалифицированных операторов.",
-    cap3Title: "Регуляторика и банки",
-    cap3Body:
-      "Банковские отношения и комплаенс по AML/KYC и международной отчётности.",
-    fizTitle: "Свободные промышленные зоны",
-    fizLead:
-      "Льготные режимы для торговли, логистики и производства.",
-    fizLink: "Сравнительная матрица",
-    potiTitle: "СИЗ Поти",
-    potiTag: "Морские ворота",
-    potiBody:
-      "У крупнейшего порта Грузии. Тяжёлое производство, логистика, торговля сырьём; ж/д доступ.",
-    tbilisiTitle: "СИЗ Тбилиси",
-    tbilisiTag: "Столица",
-    tbilisiBody:
-      "Рядом со столицей и аэропортом; IT, лёгкая промышленность, консалтинг.",
-    hualingTitle: "СИЗ Хуалин (Кутаиси)",
-    hualingTag: "Евразийский узел",
-    hualingBody:
-      "Инфраструктура под переработку и производство; связь с аэропортом Кутаиси и трассами.",
-    kutaisiTitle: "СИЗ Кутаиси",
-    kutaisiTag: "Индустриальный центр",
-    kutaisiBody:
-      "На базе бывшего автозавода; крупные производство и региональная дистрибуция.",
-  },
-  zh: {
-    heroTitle1: "格鲁吉亚",
-    heroTitle2: "司法管辖区",
-    heroLead:
-      "融合欧洲运营标准与欧亚市场准入。在低税与自由工业区框架内构建稳健的公司架构。",
-    heroCta: "发起咨询",
-    stratTitle: "战略优势",
-    stratLead: "借助主权层面的激励优化全球布局。",
-    ad1Title: "属地税制",
-    ad1Body:
-      "企业所得税仅在分配股息时征收；留存利润再投资免税，利于增长与资本积累。",
-    ad2Title: "地缘战略",
-    ad2Body:
-      "中欧走廊关键节点；依托 DCFTA、中国、独联体等自贸安排进入主要市场。",
-    ad3Title: "落地效率",
-    ad3Body:
-      "官僚摩擦低；公司设立与银行关系建立高效。",
-    coreTitle: "核心",
-    coreSubtitle: "能力",
-    cap1Title: "公司架构与设立",
-    cap1Body:
-      "量身定制主体设计；标准与特区全流程注册。",
-    cap2Title: "自由工业区牌照",
-    cap2Body:
-      "获取 FIZ 资格，符合条件的贸易与制造企业可享受企业所得税、股息税、房产税等零税率激励。",
-    cap3Title: "监管与银行",
-    cap3Body:
-      "协助建立银行关系并满足 AML/KYC 与国际报告要求。",
-    fizTitle: "自由工业区",
-    fizLead: "面向国际贸易、物流与制造的免税导向园区。",
-    fizLink: "查看对比矩阵",
-    potiTitle: "波季 FIZ",
-    potiTag: "海运门户",
-    potiBody:
-      "毗邻格鲁吉亚最大海港；适合重工、物流与大宗商品贸易；衔接铁路网络。",
-    tbilisiTitle: "第比利斯 FIZ",
-    tbilisiTag: "首都枢纽",
-    tbilisiBody:
-      "毗邻首都与国际机场；IT、轻工与咨询业态首选。",
-    hualingTitle: "华凌 FIZ（库塔伊西）",
-    hualingTag: "欧亚节点",
-    hualingBody:
-      "面向贸易加工与制造的完善基础设施；连接库塔伊西国际机场与主干道。",
-    kutaisiTitle: "库塔伊西 FIZ",
-    kutaisiTag: "工业中心",
-    kutaisiBody:
-      "原汽车制造厂旧址；适配大型工业与区域分拨。",
+    cap1Title: "Регистрация и структурирование",
+    cap1Body: "Регистрируем компании, филиалы, SPV и холдинговые конфигурации под задачи владения, налогов и операционной модели.",
+    cap2Title: "FIZ и специальные режимы",
+    cap2Body: "Сравниваем свободные индустриальные зоны и смежные льготы для торговли, производства и экспортных моделей.",
+    cap3Title: "Банковский и комплаенс-контур",
+    cap3Body: "Координируем KYC, банковскую логику, корпоративное сопровождение и локальную отчётность.",
+    fizTitle: "Свободные индустриальные зоны",
+    fizLead: "Отдельный слой юрисдикционной логики для торговли, производства, логистики и налогово-эффективной операционной модели в Грузии.",
+    fizLink: "Перейти к услугам",
+    potiTitle: "Poti FIZ",
+    potiTag: "Порт и логистика",
+    potiBody: "Подходит для торговли, складской логистики, переработки и supply-chain моделей, связанных с морскими маршрутами.",
+    tbilisiTitle: "Tbilisi FIZ",
+    tbilisiTag: "Близость к столице",
+    tbilisiBody: "Актуальна для сервисных компаний, лёгкого производства и команд, которым нужна быстрая координация с Тбилиси.",
+    hualingTitle: "Hualing FIZ",
+    hualingTag: "Коммерческий хаб",
+    hualingBody: "Подходит для смешанных торгово-производственных моделей с готовой инфраструктурой и связностью с городом.",
+    kutaisiTitle: "Kutaisi FIZ",
+    kutaisiTag: "Индустриальный потенциал",
+    kutaisiBody: "Полезна для производственных и распределительных моделей, которым нужна масштабируемость, земля и гибкая маршрутная логика.",
   },
 };
+
 export const geMessages: Record<Locale, GeMessages> = withFallbackLocales(geMessagesBase);

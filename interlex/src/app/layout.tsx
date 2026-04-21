@@ -37,12 +37,6 @@ export default async function RootLayout({
 
   return (
     <html lang={getHtmlLang(locale)} className="antialiased light">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col">
         <Header locale={locale} />
         <div className="flex-grow">{children}</div>

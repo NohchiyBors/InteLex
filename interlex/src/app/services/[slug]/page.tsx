@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { CheckIcon, PackageIcon } from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { getServiceBySlug, getServiceBySlugAnyLocale } from "@/lib/services";
 
@@ -48,26 +49,19 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   const chrome =
-    locale === "ru"
+    locale === "ru" || locale === "kk"
       ? {
           back: "Каталог услуг",
           audience: "Для кого подходит",
           included: "Что входит",
           process: "Как мы работаем",
         }
-      : locale === "zh"
-        ? {
-            back: "服务目录",
-            audience: "适用对象",
-            included: "服务内容",
-            process: "工作流程",
-          }
-        : {
-            back: "Services Catalog",
-            audience: "Who it is for",
-            included: "What is included",
-            process: "How we work",
-          };
+      : {
+          back: "Services Catalog",
+          audience: "Who it is for",
+          included: "What is included",
+          process: "How we work",
+        };
 
   return (
     <main className="pt-32 pb-24">
@@ -91,7 +85,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <ul className="space-y-4 text-on-surface-variant">
               {service.forWhom.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="material-symbols-outlined text-secondary text-base mt-0.5">check</span>
+                  <CheckIcon className="mt-0.5 h-4 w-4 text-secondary" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -102,7 +96,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <ul className="space-y-4 text-on-surface-variant">
               {service.deliverables.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="material-symbols-outlined text-secondary text-base mt-0.5">inventory_2</span>
+                  <PackageIcon className="mt-0.5 h-4 w-4 text-secondary" />
                   <span>{item}</span>
                 </li>
               ))}

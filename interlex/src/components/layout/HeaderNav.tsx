@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import type { ChromeStrings } from "@/lib/i18n";
 
 type Props = { t: ChromeStrings["nav"] };
@@ -67,7 +68,7 @@ export default function HeaderNav({ t }: Props) {
           aria-label="Toggle menu"
           className="inline-flex h-11 w-11 items-center justify-center rounded border border-primary/12 bg-white text-primary shadow-sm"
         >
-          <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
+          {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
         </button>
 
         {open ? (

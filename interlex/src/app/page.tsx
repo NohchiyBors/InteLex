@@ -1,4 +1,6 @@
+import Image from "next/image";
 import type { Metadata } from "next";
+import { ArrowRightIcon, CheckIcon } from "@/components/ui/icons";
 import { HomeContactForm } from "@/components/forms/HomeContactForm";
 import { getLocale } from "@/lib/i18n/server";
 import { homeFormLabels } from "@/lib/i18n/messages/forms";
@@ -19,10 +21,13 @@ export default async function Home() {
       <main className="pt-28">
         <section className="relative min-h-[751px] flex items-center bg-surface-container-low overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               alt=""
               className="w-full h-full object-cover opacity-20 mix-blend-multiply"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxPuwzjHOl10oWYcGAksrFCgGi7DK7BemHxlF4QYtQ1qA8EuQBTSszWqiAuspZnDRXZuuE-gw1ZGd5KastrTZuAnEhcI0xTCIwOADDzdt7TPlyacPlt12S9-3dKW8oUHVW9NrmgdBLWsY-L70oaBLobomuVb7EzzoYpGXe90sVIjWgvqPVWc2xDktSpr_vE8sHskioOkpoSagHnudaXdk98oCdBd0FWb829NTuQKpJJSeJ3t6fHg2JjB6Ov3vDzdTtX1xhFw5_5bc"
+              fill
+              priority
+              sizes="100vw"
+              src="/images/hero/home-hero.jpg"
             />
           </div>
           <div className="max-w-7xl mx-auto px-12 relative z-10 w-full">
@@ -43,7 +48,7 @@ export default async function Home() {
                   {t.ctaEngage}
                 </button>
                 <button className="text-primary border-b border-secondary pb-1 font-label text-sm uppercase tracking-wider hover:text-secondary transition-colors inline-flex items-center gap-2">
-                  {t.ctaExplore} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  {t.ctaExplore} <ArrowRightIcon className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -133,15 +138,15 @@ export default async function Home() {
                 <p className="font-label text-sm text-secondary uppercase tracking-widest mb-8">{t.kzTag}</p>
                 <ul className="space-y-6 font-body text-on-surface-variant">
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary" />
                     <span>{t.kzB1}</span>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary" />
                     <span>{t.kzB2}</span>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary" />
                     <span>{t.kzB3}</span>
                   </li>
                 </ul>
@@ -152,15 +157,15 @@ export default async function Home() {
                 <p className="font-label text-sm text-secondary-container uppercase tracking-widest mb-8">{t.geTag}</p>
                 <ul className="space-y-6 font-body text-on-primary/80">
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary-container" />
                     <span>{t.geB1}</span>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary-container" />
                     <span>{t.geB2}</span>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="material-symbols-outlined text-secondary-container text-sm mt-1">check</span>
+                    <CheckIcon className="mt-1 h-4 w-4 text-secondary-container" />
                     <span>{t.geB3}</span>
                   </li>
                 </ul>

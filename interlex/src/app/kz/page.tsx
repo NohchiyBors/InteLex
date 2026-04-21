@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BankIcon, BuildingIcon } from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { kzMeta, kzMessages } from "@/lib/i18n/messages/kz";
 
@@ -25,10 +27,13 @@ export default async function KazakhstanPage() {
           </div>
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/5] bg-surface-container-low shadow-[0_30px_60px_-15px_rgba(25,28,30,0.1)] relative overflow-hidden">
-              <img
+              <Image
                 alt=""
                 className="object-cover w-full h-full opacity-90"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxmgAgzf6wLgebpD1Q09aAYa16kYBBLp5PfF5t52qJ0ruu09bKVtzvtPs1BWSWbdo3l2SY_rvb6D1bOW-95z6F-J28i218bMX6v5nBuZcJ9j4afidhCrTY00bHn-4BoSxzTaB9ALgjXpAUO5zGKnDl41RlGyXaEJDsQW9ugZwxHF5vTOKZNf4NUpPF5gBS7evQwAl1Rawc_Ajow8CtCXjqcJT6ZsS04_CqrE2_ZuC0FpRvxyEtz7TAeR428P4F29peMVQI6u8xag4"
+                fill
+                priority
+                sizes="(min-width: 1024px) 34vw, 100vw"
+                src="/images/hero/kazakhstan-hero.jpg"
               />
             </div>
           </div>
@@ -67,9 +72,7 @@ export default async function KazakhstanPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-24">
           <div className="flex gap-6">
-            <span className="material-symbols-outlined text-secondary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>
-              domain
-            </span>
+            <BuildingIcon className="h-8 w-8 text-secondary" />
             <div>
               <h3 className="font-headline text-2xl text-primary mb-4">{t.svc1Title}</h3>
               <p className="font-body text-on-surface-variant mb-6 leading-relaxed">{t.svc1Body}</p>
@@ -79,9 +82,7 @@ export default async function KazakhstanPage() {
             </div>
           </div>
           <div className="flex gap-6">
-            <span className="material-symbols-outlined text-secondary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>
-              account_balance
-            </span>
+            <BankIcon className="h-8 w-8 text-secondary" />
             <div>
               <h3 className="font-headline text-2xl text-primary mb-4">{t.svc2Title}</h3>
               <p className="font-body text-on-surface-variant mb-6 leading-relaxed">{t.svc2Body}</p>

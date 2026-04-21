@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
+import { ChevronDownIcon } from "@/components/ui/icons";
 import type { Locale } from "@/lib/i18n";
 import type { ServicesFormLabels } from "@/lib/i18n/messages/forms";
 
@@ -77,9 +78,7 @@ export function ServicesContactForm({ locale, labels }: Props) {
               </option>
             ))}
           </select>
-          <span className="absolute right-0 top-4 material-symbols-outlined text-outline-variant pointer-events-none">
-            expand_more
-          </span>
+          <ChevronDownIcon className="pointer-events-none absolute right-0 top-4 h-5 w-5 text-outline-variant" />
         </div>
         <div className="relative group mt-12">
           <textarea

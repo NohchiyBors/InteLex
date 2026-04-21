@@ -1,7 +1,7 @@
 export type Locale = "en" | "ru" | "zh" | "kk" | "ka";
-export type ContentLocale = "en" | "ru" | "zh";
+export type ContentLocale = "en" | "ru";
 
-export const locales: Locale[] = ["ru", "en", "zh", "kk", "ka"];
+export const locales: Locale[] = ["ru", "kk", "en", "ka", "zh"];
 
 export const defaultLocale: Locale = "ru";
 
@@ -17,9 +17,8 @@ export function getDomainDefaultLocale(host: string | null | undefined): Locale 
 }
 
 export function resolveContentLocale(locale: Locale): ContentLocale {
-  if (locale === "kk") return "ru";
-  if (locale === "ka") return "en";
-  return locale;
+  if (locale === "ru" || locale === "kk") return "ru";
+  return "en";
 }
 
 export function getHtmlLang(locale: Locale): string {
@@ -40,7 +39,14 @@ export function withFallbackLocales<T>(base: Record<ContentLocale, T>): Record<L
     ...base,
     kk: base.ru,
     ka: base.en,
+    zh: base.en,
   };
+}
+
+export function getLocalePriority(current: Locale): Locale[] {
+  if (current === "ru" || current === "kk") return ["ru", "kk", "zh", "en", "ka"];
+  if (current === "en" || current === "ka") return ["en", "ka", "zh", "ru", "kk"];
+  return ["zh", "ru", "kk", "en", "ka"];
 }
 
 export type ChromeStrings = {
@@ -62,23 +68,22 @@ export type ChromeStrings = {
   };
 };
 
-export const chrome: Record<Locale, ChromeStrings> = {
+const chromeBase: Record<ContentLocale, ChromeStrings> = {
   en: {
     nav: {
       home: "Home",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
       services: "Services",
-      pricing: "Pricing",
+      pricing: "Packages",
       contact: "Contact",
     },
     footer: {
-      tagline:
-        "© 2026 InterLex. Cross-border legal and business advisory.",
+      tagline: "© 2026 InterLex. Cross-border legal and business advisory for Kazakhstan and Georgia.",
       kazakhstan: "Kazakhstan",
       georgia: "Georgia",
       services: "Services",
-      pricing: "Pricing",
+      pricing: "Packages",
       contact: "Contact",
     },
   },
@@ -92,8 +97,7 @@ export const chrome: Record<Locale, ChromeStrings> = {
       contact: "Контакты",
     },
     footer: {
-      tagline:
-        "© 2026 InterLex. Международный юридический и бизнес-консалтинг.",
+      tagline: "© 2026 InterLex. Международный юридический и бизнес-консалтинг для Казахстана и Грузии.",
       kazakhstan: "Казахстан",
       georgia: "Грузия",
       services: "Услуги",
@@ -101,58 +105,6 @@ export const chrome: Record<Locale, ChromeStrings> = {
       contact: "Контакты",
     },
   },
-  zh: {
-    nav: {
-      home: "首页",
-      kazakhstan: "哈萨克斯坦",
-      georgia: "格鲁吉亚",
-      services: "服务",
-      pricing: "套餐与价格",
-      contact: "联系我们",
-    },
-    footer: {
-      tagline: "© 2026 InterLex。哈萨克斯坦与格鲁吉亚跨境咨询服务。",
-      kazakhstan: "哈萨克斯坦",
-      georgia: "格鲁吉亚",
-      services: "服务",
-      pricing: "套餐与价格",
-      contact: "联系我们",
-    },
-  },
-  kk: {
-    nav: {
-      home: "Басты бет",
-      kazakhstan: "Қазақстан",
-      georgia: "Грузия",
-      services: "Қызметтер",
-      pricing: "Пакеттер",
-      contact: "Байланыс",
-    },
-    footer: {
-      tagline: "© 2026 InterLex. Қазақстан мен Грузия бойынша халықаралық консалтинг.",
-      kazakhstan: "Қазақстан",
-      georgia: "Грузия",
-      services: "Қызметтер",
-      pricing: "Пакеттер",
-      contact: "Байланыс",
-    },
-  },
-  ka: {
-    nav: {
-      home: "Home",
-      kazakhstan: "Kazakhstan",
-      georgia: "Georgia",
-      services: "Services",
-      pricing: "Packages",
-      contact: "Contact",
-    },
-    footer: {
-      tagline: "© 2026 InterLex. Cross-border advisory for Kazakhstan and Georgia.",
-      kazakhstan: "Kazakhstan",
-      georgia: "Georgia",
-      services: "Services",
-      pricing: "Packages",
-      contact: "Contact",
-    },
-  },
 };
+
+export const chrome: Record<Locale, ChromeStrings> = withFallbackLocales(chromeBase);

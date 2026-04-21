@@ -1,5 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  AdminPanelIcon,
+  ArrowDownIcon,
+  ArrowRightIcon,
+  BankIcon,
+  CheckCircleIcon,
+  ClipboardIcon,
+  GavelIcon,
+  HandshakeIcon,
+  TrendingFlatIcon,
+  TrendingUpIcon,
+} from "@/components/ui/icons";
 import { ServicesContactForm } from "@/components/forms/ServicesContactForm";
 import { getLocale } from "@/lib/i18n/server";
 import { servicesFormLabels } from "@/lib/i18n/messages/forms";
@@ -17,23 +30,17 @@ export default async function ServicesPage() {
   const formLabels = servicesFormLabels[locale];
   const services = getServices(locale);
   const directory =
-    locale === "ru"
+    locale === "ru" || locale === "kk"
       ? {
           title: "Каталог услуг",
           lead: "Структурированный обзор коммерческих направлений InterLex с отдельными страницами по каждой ключевой услуге.",
           cta: "Подробнее",
         }
-      : locale === "zh"
-        ? {
-            title: "服务目录",
-            lead: "InterLex 商业服务目录的结构化总览，每关键服务均可进入独立页面。",
-            cta: "查看详情",
-          }
-        : {
-            title: "Service Directory",
-            lead: "A structured overview of the InterLex advisory catalog with dedicated pages for each commercial line.",
-            cta: "View service",
-          };
+      : {
+          title: "Service Directory",
+          lead: "A structured overview of the InterLex advisory catalog with dedicated pages for each commercial line.",
+          cta: "View service",
+        };
 
   return (
     <main className="pt-32 pb-24">
@@ -52,7 +59,7 @@ export default async function ServicesPage() {
                 className="bg-primary text-on-primary px-8 py-4 rounded font-medium hover:bg-primary-container transition-colors duration-300 text-center inline-flex justify-center items-center gap-3"
                 href="#catalog"
               >
-                {t.explore} <span className="material-symbols-outlined text-sm">arrow_downward</span>
+                {t.explore} <ArrowDownIcon className="h-4 w-4" />
               </a>
               <a
                 className="border border-outline text-primary px-8 py-4 rounded font-medium hover:bg-surface-container transition-colors duration-300 text-center"
@@ -64,10 +71,14 @@ export default async function ServicesPage() {
           </div>
           <div className="lg:col-span-5 relative hidden lg:block">
             <div className="absolute inset-0 bg-secondary/10 -translate-x-4 translate-y-4 rounded-lg"></div>
-            <img
+            <Image
               alt={t.imgAlt}
               className="relative w-full h-[600px] object-cover rounded shadow-2xl z-0 grayscale-[20%] sepia-[10%]"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXyrCdqsvz6rxr_mQRducZSggZ2DQZS78eI6juCYpnLgOLGfaV8AGld_jKb87cmFd5TUL0Wup-VbBDBBYTo2RTG6m4L1qtXGOYnRm7CbCxC6kz5MqcBmSNpeEy_fTw9L3FqX1GcVzNJKVHJkHFJvKrbnw9VAG2W3KQXuyW_aHQVDX1p_0Hm2KqAHIibSbNqAxxlA3ArWZjNXnAgMWIYP1wCG7FYh2UJ8gVVljUPVPiVoK4q29GHRPCLnvg17YTUuJin3sha8P8K3g"
+              height={600}
+              priority
+              sizes="(min-width: 1024px) 34vw, 100vw"
+              src="/images/hero/services-hero.jpg"
+              width={480}
             />
           </div>
         </div>
@@ -82,9 +93,7 @@ export default async function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-surface p-12 rounded shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden border border-outline-variant/10">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                <span className="material-symbols-outlined text-6xl text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  account_balance
-                </span>
+                <BankIcon className="h-16 w-16 text-primary" />
               </div>
               <h3 className="font-headline text-2xl text-primary mb-4 relative z-10">{t.jurCardTitle}</h3>
               <p className="text-on-surface-variant mb-8 relative z-10">{t.jurCardBody}</p>
@@ -105,9 +114,7 @@ export default async function ServicesPage() {
             </div>
             <div className="bg-surface p-12 rounded shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden border border-outline-variant/10">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                <span className="material-symbols-outlined text-6xl text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  trending_up
-                </span>
+                <TrendingUpIcon className="h-16 w-16 text-primary" />
               </div>
               <h3 className="font-headline text-2xl text-primary mb-4 relative z-10">{t.lifeTitle}</h3>
               <p className="text-on-surface-variant mb-8 relative z-10">{t.lifeBody}</p>
@@ -136,16 +143,14 @@ export default async function ServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-min">
           <div className="md:col-span-8 bg-surface-container-lowest p-10 md:p-14 rounded shadow-sm border border-outline-variant/10 relative overflow-hidden group">
             <div className="absolute -right-10 -bottom-10 opacity-5">
-              <span className="material-symbols-outlined text-[200px] text-primary" style={{ fontVariationSettings: "'FILL' 0" }}>
-                app_registration
-              </span>
+              <ClipboardIcon className="h-[200px] w-[200px] text-primary" />
             </div>
             <div className="flex items-start justify-between mb-12 relative z-10">
               <div>
                 <span className="text-secondary font-semibold tracking-widest text-sm uppercase mb-3 block">{t.fTag}</span>
                 <h3 className="font-headline text-3xl text-primary">{t.fMain}</h3>
               </div>
-              <span className="material-symbols-outlined text-outline group-hover:text-secondary transition-colors text-3xl">arrow_forward</span>
+              <ArrowRightIcon className="h-8 w-8 text-outline transition-colors group-hover:text-secondary" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 relative z-10">
               <div className="border-b border-outline-variant/20 pb-4">
@@ -188,7 +193,7 @@ export default async function ServicesPage() {
             </div>
             <div className="relative z-10 mt-12 pt-8 border-t border-inverse-primary/20">
               <Link className="text-secondary-container hover:text-on-primary transition-colors text-sm font-medium flex items-center gap-2" href="/packages">
-                {t.viewTax} <span className="material-symbols-outlined text-sm">trending_flat</span>
+                {t.viewTax} <TrendingFlatIcon className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -197,27 +202,21 @@ export default async function ServicesPage() {
             <h3 className="font-headline text-2xl text-primary mb-8">{t.cMain}</h3>
             <ul className="space-y-5">
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  check_circle
-                </span>
+                <CheckCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.cdTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.cdDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  check_circle
-                </span>
+                <CheckCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.bkTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.bkDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  check_circle
-                </span>
+                <CheckCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.raTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.raDesc}</p>
@@ -230,21 +229,21 @@ export default async function ServicesPage() {
             <h3 className="font-headline text-2xl text-primary mb-8">{t.gMain}</h3>
             <ul className="space-y-5">
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-outline text-xl shrink-0 mt-0.5">handshake</span>
+                <HandshakeIcon className="mt-0.5 h-5 w-5 shrink-0 text-outline" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.ddTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.ddDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-outline text-xl shrink-0 mt-0.5">gavel</span>
+                <GavelIcon className="mt-0.5 h-5 w-5 shrink-0 text-outline" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.pmTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.pmDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-outline text-xl shrink-0 mt-0.5">admin_panel_settings</span>
+                <AdminPanelIcon className="mt-0.5 h-5 w-5 shrink-0 text-outline" />
                 <div>
                   <h4 className="font-medium text-primary text-sm">{t.csTitle}</h4>
                   <p className="text-xs text-on-surface-variant mt-1">{t.csDesc}</p>
@@ -271,7 +270,7 @@ export default async function ServicesPage() {
               <h3 className="font-headline text-2xl text-primary mb-4">{service.title}</h3>
               <p className="text-on-surface-variant leading-relaxed">{service.summary}</p>
               <div className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-primary">
-                {directory.cta} <span className="material-symbols-outlined text-base">arrow_forward</span>
+                {directory.cta} <ArrowRightIcon className="h-4 w-4" />
               </div>
             </Link>
           ))}
