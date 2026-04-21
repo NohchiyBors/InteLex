@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { BankIcon, BuildingIcon } from "@/components/ui/icons";
+import { ArrowRightIcon, BankIcon, BuildingIcon, HandshakeIcon } from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { kzMeta, kzMessages } from "@/lib/i18n/messages/kz";
+import { getInvestmentProjects } from "@/lib/projects";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -13,6 +14,25 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function KazakhstanPage() {
   const locale = await getLocale();
   const t = kzMessages[locale];
+  const investmentProjects = getInvestmentProjects(locale, "kz");
+  const investorCopy =
+    locale === "ru" || locale === "kk"
+      ? {
+          title: "Инвестиционные проекты Казахстана",
+          lead:
+            "Из локального `docs/spec` для Казахстана явно выделены investor-entry задачи: преференции, GR, резидентство и институциональный вход в проект.",
+          tracks: "Треки",
+          outcome: "Результат",
+          cta: "Смотреть investor support",
+        }
+      : {
+          title: "Kazakhstan investment projects",
+          lead:
+            "The local `docs/spec` explicitly positions Kazakhstan around investor-entry work: incentives, GR, residency, and institutional project entry.",
+          tracks: "Tracks",
+          outcome: "Outcome",
+          cta: "View investor support",
+        };
 
   return (
     <main className="pt-32 pb-24">
@@ -92,6 +112,49 @@ export default async function KazakhstanPage() {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-12 mb-32">
+        <div className="flex flex-col md:flex-row justify-between gap-8 mb-16 border-b border-outline-variant/20 pb-6">
+          <div className="max-w-3xl">
+            <h2 className="font-headline text-4xl text-primary font-medium tracking-tight mb-4">{investorCopy.title}</h2>
+            <p className="font-body text-on-surface-variant leading-relaxed">{investorCopy.lead}</p>
+          </div>
+          <Link
+            className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1 inline-flex items-center gap-2"
+            href="/services/investor-gr"
+          >
+            {investorCopy.cta} <ArrowRightIcon className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {investmentProjects.map((project) => (
+            <article key={project.title} className="bg-surface-container-low p-10 border border-outline-variant/15">
+              <div className="flex items-start justify-between gap-6 mb-6">
+                <div>
+                  <p className="font-body text-xs tracking-widest uppercase text-secondary mb-3">{project.tag}</p>
+                  <h3 className="font-headline text-3xl text-primary tracking-tight">{project.title}</h3>
+                </div>
+                <HandshakeIcon className="h-8 w-8 text-secondary shrink-0" />
+              </div>
+              <p className="font-body text-on-surface-variant leading-relaxed mb-8">{project.summary}</p>
+              <div className="mb-6">
+                <p className="font-body text-xs tracking-widest uppercase text-primary mb-3">{investorCopy.tracks}</p>
+                <div className="flex flex-wrap gap-3">
+                  {project.tracks.map((track) => (
+                    <span key={track} className="px-3 py-1.5 bg-surface text-sm text-on-surface-variant border border-outline-variant/10">
+                      {track}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="border-t border-outline-variant/15 pt-6">
+                <p className="font-body text-xs tracking-widest uppercase text-primary mb-3">{investorCopy.outcome}</p>
+                <p className="font-body text-on-surface-variant leading-relaxed">{project.outcome}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 

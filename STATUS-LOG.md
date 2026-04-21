@@ -53,3 +53,66 @@ Live asset outage on `interlex.kz` after the previous push.
 - Commit and push the runtime fix
 - Restart the Coolify deploys
 - Verify whether Coolify uses the root `Dockerfile` or a direct app start command
+
+### Item
+Repository follow-up after the standalone asset fix.
+
+### Completed
+- Additional commit `9341cd2` was prepared and pushed to `main`
+- Hero images were switched to a more deployment-tolerant `unoptimized` mode
+- `Dockerfile` expectations around `public` assets were verified
+- `docs/deploy/coolify.md` was updated to reflect the current deployment assumptions
+
+### Evidence
+- `git rev-parse --short HEAD` -> `9341cd2`
+- User confirmed `main` advanced from `4687c72` to `9341cd2`
+
+### Open
+- Run redeploy in Coolify for the `interlex` application on `host` and `hostkz`
+- Verify live hero and brand assets after redeploy
+
+### Item
+Repository hygiene update for local-only specifications.
+
+### Completed
+- Added `/docs/spec/` to `.gitignore`
+- Removed the existing `docs/spec/*` files from the git index with `git rm --cached -r docs/spec`
+- Kept the files on disk locally so they remain available as working reference material outside git
+
+### Evidence
+- `git status --short` now shows `.gitignore` modified and `docs/spec/*` staged as tracked deletions
+
+### Open
+- Root docs still mention `docs/spec` as repository-tracked source material and may need follow-up wording changes
+
+### Item
+`docs/spec` content transfer into the commercial site surface.
+
+### Completed
+- Added a quick services showcase to the home page based on the phase-1 service structure from `docs/spec`
+- Added representative project-track cards to the home page to cover the missing projects/cases layer from the specifications
+- Added service-selection scenarios to the services catalogue based on the route logic from `docs/spec`
+- Added representative bundled project-track cards to the services catalogue to show how services combine in real mandates
+
+### Evidence
+- `interlex/src/app/page.tsx` now renders service cards and project-track cards
+- `interlex/src/app/services/page.tsx` now renders selection scenarios and project-track cards
+- `interlex/src/lib/projects.ts` stores the new localized project/scenario content layer
+
+### Open
+- Build verification still needs to be rerun after these content additions
+
+### Item
+Country-specific investment-project visibility for Kazakhstan and Georgia.
+
+### Completed
+- Added a Kazakhstan investment-project section to `interlex/src/app/kz/page.tsx`
+- Added a Georgia investment-project section to `interlex/src/app/ge/page.tsx`
+- Extended `interlex/src/lib/projects.ts` with localized country-specific investment-project data
+
+### Evidence
+- `interlex/src/app/kz/page.tsx` now renders Kazakhstan investor-entry cards
+- `interlex/src/app/ge/page.tsx` now renders Georgia investor-entry cards
+
+### Open
+- Re-run build after the new jurisdiction-level investment sections

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getHtmlLang } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/server";
+import { isStagingHost, resolveRequestHost } from "@/lib/staging";
 import "./globals.css";
 
 function getMetadataBase() {
@@ -18,15 +20,33 @@ function getMetadataBase() {
   }
 }
 
-export const metadata: Metadata = {
-  title: {
-    default: "InterLex",
-    template: "%s",
-  },
-  applicationName: "InterLex",
-  description: "Cross-border legal and business advisory in Kazakhstan and Georgia.",
-  metadataBase: getMetadataBase(),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const headerStore = await headers();
+  const host = resolveRequestHost(headerStore);
+
+  const base: Metadata = {
+    title: {
+      default: "InterLex",
+      template: "%s",
+    },
+    applicationName: "InterLex",
+    description: "Cross-border legal and business advisory in Kazakhstan and Georgia.",
+    metadataBase: getMetadataBase(),
+  };
+
+  if (isStagingHost(host)) {
+    return {
+      ...base,
+      robots: {
+        index: false,
+        follow: false,
+        googleBot: { index: false, follow: false },
+      },
+    };
+  }
+
+  return base;
+}
 
 export default async function RootLayout({
   children,

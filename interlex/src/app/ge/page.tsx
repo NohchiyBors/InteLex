@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRightIcon, BankIcon, GlobeIcon, SpeedIcon } from "@/components/ui/icons";
+import { ArrowRightIcon, BankIcon, GlobeIcon, HandshakeIcon, SpeedIcon } from "@/components/ui/icons";
 import { getLocale } from "@/lib/i18n/server";
 import { geMeta, geMessages } from "@/lib/i18n/messages/ge";
+import { getInvestmentProjects } from "@/lib/projects";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -13,6 +14,25 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function GeorgiaPage() {
   const locale = await getLocale();
   const t = geMessages[locale];
+  const investmentProjects = getInvestmentProjects(locale, "ge");
+  const investorCopy =
+    locale === "ru" || locale === "kk"
+      ? {
+          title: "Инвестиционные проекты Грузии",
+          lead:
+            "В `docs/spec` Грузия раскрыта через FIZ, special regimes, international-company логику, резидентство и investor-friendly operating structures.",
+          tracks: "Треки",
+          outcome: "Результат",
+          cta: "Смотреть investor support",
+        }
+      : {
+          title: "Georgia investment projects",
+          lead:
+            "In `docs/spec`, Georgia is framed through FIZ, special regimes, international-company logic, residency, and investor-friendly operating structures.",
+          tracks: "Tracks",
+          outcome: "Outcome",
+          cta: "View investor support",
+        };
 
   return (
     <main className="pt-32">
@@ -103,6 +123,48 @@ export default async function GeorgiaPage() {
                 <p className="font-body text-on-surface-variant leading-relaxed">{t.cap3Body}</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-surface-container-low py-24 md:py-32 border-y border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row justify-between gap-8 mb-16 border-b border-outline-variant/20 pb-8">
+            <div className="max-w-3xl">
+              <h2 className="font-headline text-4xl md:text-5xl text-primary tracking-tight mb-4">{investorCopy.title}</h2>
+              <p className="font-body text-on-surface-variant leading-relaxed">{investorCopy.lead}</p>
+            </div>
+            <Link className="font-body text-sm text-primary border-b-2 border-secondary hover:text-secondary transition-colors py-1 inline-flex items-center gap-2" href="/services/investor-gr">
+              {investorCopy.cta} <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {investmentProjects.map((project) => (
+              <article key={project.title} className="bg-surface p-10 border border-outline-variant/15">
+                <div className="flex items-start justify-between gap-6 mb-6">
+                  <div>
+                    <p className="font-body text-xs tracking-widest uppercase text-secondary mb-3">{project.tag}</p>
+                    <h3 className="font-headline text-3xl text-primary tracking-tight">{project.title}</h3>
+                  </div>
+                  <HandshakeIcon className="h-8 w-8 text-secondary shrink-0" />
+                </div>
+                <p className="font-body text-on-surface-variant leading-relaxed mb-8">{project.summary}</p>
+                <div className="mb-6">
+                  <p className="font-body text-xs tracking-widest uppercase text-primary mb-3">{investorCopy.tracks}</p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.tracks.map((track) => (
+                      <span key={track} className="px-3 py-1.5 bg-surface-container-lowest text-sm text-on-surface-variant border border-outline-variant/10">
+                        {track}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="border-t border-outline-variant/15 pt-6">
+                  <p className="font-body text-xs tracking-widest uppercase text-primary mb-3">{investorCopy.outcome}</p>
+                  <p className="font-body text-on-surface-variant leading-relaxed">{project.outcome}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

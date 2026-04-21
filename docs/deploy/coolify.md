@@ -37,6 +37,15 @@
 
 Фоновые JPEG в `public/images/hero/` отдаются через `<Image unoptimized />`, чтобы не дергать пайплайн `/_next/image` в контейнере (иначе в логах возможны ошибки вида «isn't a valid image … received null», если optimizer не находит файл так же, как локально).
 
+### Препрод-домены `stage.interlex.*`
+
+Для хостов вида **`stage.interlex.kz`**, **`stage.interlex.ge`** и любых **`stage.interlex.<зона>`**:
+
+- `/robots.txt` отдаёт **`Disallow: /`** для всех ботов.
+- В `<head>` добавляется **`noindex, nofollow`** (метаданные страниц).
+
+Так препрод не попадает в индекс при условии, что запрос приходит с корректным **`Host`** / **`x-forwarded-host`** на этот домен.
+
 ## Проверка после деплоя
 - Основной сайт открывается по домену
 - Health endpoint отвечает: `/api/health`

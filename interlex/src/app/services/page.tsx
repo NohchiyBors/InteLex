@@ -17,6 +17,7 @@ import { ServicesContactForm } from "@/components/forms/ServicesContactForm";
 import { getLocale } from "@/lib/i18n/server";
 import { servicesFormLabels } from "@/lib/i18n/messages/forms";
 import { servicesMeta, servicesMessages } from "@/lib/i18n/messages/services";
+import { getProjectScenarios, getProjects } from "@/lib/projects";
 import { getServices } from "@/lib/services";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,6 +30,30 @@ export default async function ServicesPage() {
   const t = servicesMessages[locale];
   const formLabels = servicesFormLabels[locale];
   const services = getServices(locale);
+  const scenarios = getProjectScenarios(locale);
+  const projects = getProjects(locale).slice(0, 3);
+  const copy =
+    locale === "ru" || locale === "kk"
+      ? {
+          scenariosTitle: "Сценарии выбора услуги",
+          scenariosLead:
+            "Каталог построен не только по названиям услуг, но и по типовым проектным маршрутам: вход в страну, подбор режима, стабилизация операционной работы и подготовка сделки.",
+          scenariosCta: "Открыть маршрут",
+          projectsTitle: "Проектные треки",
+          projectsLead:
+            "Типовые проектные конфигурации помогают быстрее понять, какие сервисы обычно комбинируются в одном коммерческом запросе.",
+          outcome: "Результат",
+        }
+      : {
+          scenariosTitle: "Service selection scenarios",
+          scenariosLead:
+            "The catalogue is organised not only by service names but also by common project routes: entering a country, choosing a regime, stabilising operations, and preparing for a transaction.",
+          scenariosCta: "Open route",
+          projectsTitle: "Project tracks",
+          projectsLead:
+            "Representative project configurations help show which services are commonly bundled into one commercial mandate.",
+          outcome: "Outcome",
+        };
   const directory =
     locale === "ru" || locale === "kk"
       ? {
@@ -274,6 +299,57 @@ export default async function ServicesPage() {
                 {directory.cta} <ArrowRightIcon className="h-4 w-4" />
               </div>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-surface-container-low py-24 border-y border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="mb-12 max-w-3xl">
+            <h2 className="font-headline text-4xl text-primary tracking-tight mb-4">{copy.scenariosTitle}</h2>
+            <p className="text-on-surface-variant leading-relaxed">{copy.scenariosLead}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {scenarios.map((scenario) => (
+              <Link
+                key={scenario.title}
+                href={scenario.href}
+                className="bg-surface p-8 rounded border border-outline-variant/15 hover:border-secondary/40 transition-colors"
+              >
+                <h3 className="font-headline text-2xl text-primary mb-4">{scenario.title}</h3>
+                <p className="text-on-surface-variant leading-relaxed mb-6">{scenario.body}</p>
+                <div className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-primary">
+                  {copy.scenariosCta} <ArrowRightIcon className="h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-headline text-4xl text-primary tracking-tight mb-4">{copy.projectsTitle}</h2>
+          <p className="text-on-surface-variant leading-relaxed">{copy.projectsLead}</p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <article key={project.slug} className="bg-surface-container-low p-8 rounded border border-outline-variant/15">
+              <p className="text-xs uppercase tracking-[0.22em] text-secondary mb-3">{project.tag}</p>
+              <h3 className="font-headline text-2xl text-primary mb-4">{project.title}</h3>
+              <p className="text-on-surface-variant leading-relaxed mb-6">{project.summary}</p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.services.map((service) => (
+                  <span key={service} className="px-3 py-1.5 bg-surface text-xs text-on-surface-variant border border-outline-variant/10">
+                    {service}
+                  </span>
+                ))}
+              </div>
+              <div className="border-t border-outline-variant/15 pt-5">
+                <p className="text-xs uppercase tracking-[0.22em] text-primary mb-2">{copy.outcome}</p>
+                <p className="text-on-surface-variant leading-relaxed">{project.outcome}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>

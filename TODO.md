@@ -8,21 +8,28 @@
 - [x] Normalize `messages/*` and `services.ts` into clean UTF-8 content
 - [x] Rework locale fallbacks so `kk -> ru`, `ka -> en`, and temporary `zh -> en`
 - [x] Verify `npm install`, `npm run build`, and route smoke checks via local `npm run dev`
+- [x] Patch standalone runtime asset serving and hero-image delivery for production
+- [x] Enrich the site from local `docs/spec` with service showcase and representative project tracks on core commercial pages
+- [x] Add explicit investment-project blocks for Kazakhstan and Georgia on the jurisdiction pages
 
 ## Next Actions
-- [ ] Push the standalone asset-runtime fix to `main`
 - [ ] Restart the Coolify deploys for `interlex` on `host` and `hostkz`
-- [ ] Verify that Coolify uses the root `Dockerfile` or otherwise serves `interlex/public` alongside `.next/standalone`
+- [ ] Verify after redeploy that `https://interlex.kz/` serves hero images and brand assets correctly
+- [ ] Verify that Coolify uses the root `Dockerfile` or an equivalent runtime that keeps `interlex/public` available
 - [ ] Decide whether to keep dual lockfiles or set `turbopack.root` to silence the workspace-root warning
 - [ ] Decide whether `zh` should stay English fallback or receive a full dedicated translation pass later
+- [ ] Align `README.md` and root `AGENTS.md` with the new local-only status of `docs/spec`
 
 ## Verification Notes
 - [x] `/` with `Host: interlex.kz` returns `lang=ru`
 - [x] `/` with `Host: interlex.ge` returns `lang=en`
 - [x] `/kz`, `/ge`, `/services`, `/packages` return `200`
 - [x] Language switcher `<select>` and mobile menu trigger are present in rendered HTML
+- [x] Standalone runtime returns `200` for `/brand/IL_logo_dark.svg`, `/images/hero/home-hero.jpg`, and `/_next/image?...`
+- [ ] Re-run build after the new `docs/spec`-driven service/project content additions
 
 ## Open Risks
 - [ ] No browser-automation visual pass was run for responsive layout, only HTTP smoke checks
-- [ ] Coolify restart has not been executed from this session yet
-- [ ] Live hosting may still fail if Coolify bypasses the repository `Dockerfile` and starts `interlex` directly with a custom command
+- [ ] Redeploy still needs to be executed and validated in live Coolify environments
+- [ ] Live hosting may still fail if Coolify ignores the repository runtime assumptions despite the current fixes
+- [ ] `README.md` and `AGENTS.md` still reference `docs/spec` as repository source of truth even though that folder is now excluded from git

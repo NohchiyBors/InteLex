@@ -1,10 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRightIcon, CheckIcon } from "@/components/ui/icons";
 import { HomeContactForm } from "@/components/forms/HomeContactForm";
 import { getLocale } from "@/lib/i18n/server";
 import { homeFormLabels } from "@/lib/i18n/messages/forms";
 import { homeMeta, homeMessages } from "@/lib/i18n/messages/home";
+import { getProjects } from "@/lib/projects";
+import { getServices } from "@/lib/services";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -15,6 +18,36 @@ export default async function Home() {
   const locale = await getLocale();
   const t = homeMessages[locale];
   const form = homeFormLabels[locale];
+  const services = getServices(locale).slice(0, 8);
+  const projects = getProjects(locale);
+  const chrome =
+    locale === "ru" || locale === "kk"
+      ? {
+          servicesTag: "Каталог услуг",
+          servicesTitle: "Ключевые сервисные направления",
+          servicesLead:
+            "Быстрый вход в основные коммерческие направления из структуры этапа 1: регистрация, специальные режимы, банковский трек, сопровождение, сделки и investor support.",
+          serviceCta: "Открыть услугу",
+          projectsTag: "Проекты",
+          projectsTitle: "Representative projects and deal tracks",
+          projectsLead:
+            "Ниже не раскрытые клиентские данные, а типовые проектные треки, через которые InterLex обычно упаковывает трансграничные задачи в Казахстане и Грузии.",
+          servicesLabel: "Услуги",
+          outcomeLabel: "Результат",
+        }
+      : {
+          servicesTag: "Service catalogue",
+          servicesTitle: "Core service lines",
+          servicesLead:
+            "A fast entry into the main commercial workstreams from the phase-one structure: registration, special regimes, banking, continuity support, transactions, and investor work.",
+          serviceCta: "Open service",
+          projectsTag: "Projects",
+          projectsTitle: "Representative projects and deal tracks",
+          projectsLead:
+            "These are anonymised project tracks rather than named client disclosures, showing how InterLex typically packages cross-border work in Kazakhstan and Georgia.",
+          servicesLabel: "Services",
+          outcomeLabel: "Outcome",
+        };
 
   return (
     <>
@@ -171,6 +204,65 @@ export default async function Home() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-28 bg-surface-container-low border-y border-outline-variant/10">
+          <div className="max-w-7xl mx-auto px-12">
+            <div className="max-w-3xl mb-14">
+              <p className="font-label text-sm tracking-[0.22em] text-secondary uppercase mb-4">{chrome.servicesTag}</p>
+              <h2 className="font-headline text-4xl text-primary tracking-tight mb-6">{chrome.servicesTitle}</h2>
+              <p className="font-body text-on-surface-variant leading-relaxed">{chrome.servicesLead}</p>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+              {services.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="bg-surface p-8 border border-outline-variant/15 hover:border-secondary/40 transition-colors"
+                >
+                  <p className="font-label text-xs tracking-[0.24em] text-secondary uppercase mb-3">{service.category}</p>
+                  <h3 className="font-headline text-2xl text-primary mb-4">{service.title}</h3>
+                  <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-6">{service.summary}</p>
+                  <div className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary">
+                    {chrome.serviceCta} <ArrowRightIcon className="h-4 w-4" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-28 bg-surface">
+          <div className="max-w-7xl mx-auto px-12">
+            <div className="max-w-3xl mb-14">
+              <p className="font-label text-sm tracking-[0.22em] text-secondary uppercase mb-4">{chrome.projectsTag}</p>
+              <h2 className="font-headline text-4xl text-primary tracking-tight mb-6">{chrome.projectsTitle}</h2>
+              <p className="font-body text-on-surface-variant leading-relaxed">{chrome.projectsLead}</p>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {projects.map((project) => (
+                <article key={project.slug} className="bg-surface-container-low p-10 border border-outline-variant/15">
+                  <p className="font-label text-xs tracking-[0.24em] text-secondary uppercase mb-4">{project.tag}</p>
+                  <h3 className="font-headline text-3xl text-primary tracking-tight mb-4">{project.title}</h3>
+                  <p className="font-body text-on-surface-variant leading-relaxed mb-8">{project.summary}</p>
+                  <div className="mb-6">
+                    <p className="font-label text-xs tracking-[0.22em] text-primary uppercase mb-3">{chrome.servicesLabel}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {project.services.map((service) => (
+                        <span key={service} className="px-3 py-2 bg-surface text-sm text-on-surface-variant border border-outline-variant/10">
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="border-t border-outline-variant/15 pt-6">
+                    <p className="font-label text-xs tracking-[0.22em] text-primary uppercase mb-3">{chrome.outcomeLabel}</p>
+                    <p className="font-body text-on-surface-variant leading-relaxed">{project.outcome}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

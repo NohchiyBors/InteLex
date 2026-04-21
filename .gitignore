@@ -33,3 +33,6 @@ Desktop.ini
 # скрипт выгрузки при необходимости остаётся отслеживаемым.
 /design/stitch-exports/*
 !/design/stitch-exports/download_screens.ps1
+
+# Спецификации проекта локально исключаем из новых git-изменений
+/docs/spec/
