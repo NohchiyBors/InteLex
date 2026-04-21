@@ -34,6 +34,7 @@ export default async function KazakhstanPage() {
                 priority
                 sizes="(min-width: 1024px) 34vw, 100vw"
                 src="/images/hero/kazakhstan-hero.jpg"
+                unoptimized
               />
             </div>
           </div>

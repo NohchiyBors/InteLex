@@ -25,6 +25,8 @@ COPY --from=builder /app/interlex/public ./public
 COPY --from=builder /app/interlex/.next/standalone ./
 COPY --from=builder /app/interlex/.next/static ./.next/static
 
+RUN test -f public/images/hero/home-hero.jpg || (echo "missing public/images/hero assets" && exit 1)
+
 USER nextjs
 
 EXPOSE 3000

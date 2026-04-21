@@ -44,6 +44,7 @@ export default async function PackagesPage() {
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
             src="/images/hero/packages-hero.jpg"
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-r from-surface to-transparent"></div>
         </div>

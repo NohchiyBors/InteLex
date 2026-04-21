@@ -36,6 +36,7 @@ export default async function GeorgiaPage() {
             priority
             sizes="(min-width: 768px) 58vw, 100vw"
             src="/images/hero/georgia-hero.jpg"
+            unoptimized
           />
         </div>
       </section>

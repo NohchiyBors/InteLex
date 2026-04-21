@@ -78,6 +78,7 @@ export default async function ServicesPage() {
               priority
               sizes="(min-width: 1024px) 34vw, 100vw"
               src="/images/hero/services-hero.jpg"
+              unoptimized
               width={480}
             />
           </div>

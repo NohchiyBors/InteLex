@@ -28,6 +28,7 @@ export default async function Home() {
               priority
               sizes="100vw"
               src="/images/hero/home-hero.jpg"
+              unoptimized
             />
           </div>
           <div className="max-w-7xl mx-auto px-12 relative z-10 w-full">
