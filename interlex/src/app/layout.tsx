@@ -65,10 +65,11 @@ export default async function RootLayout({
         {isKzProductionHost ? (
           <>
             <Script
+              id="google-analytics-kz-loader"
               src="https://www.googletagmanager.com/gtag/js?id=G-0PB5VDR3F9"
-              strategy="afterInteractive"
+              strategy="beforeInteractive"
             />
-            <Script id="google-analytics-kz" strategy="afterInteractive">
+            <Script id="google-analytics-kz" strategy="beforeInteractive">
               {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

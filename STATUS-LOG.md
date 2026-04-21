@@ -9,6 +9,7 @@ Host-specific Google Analytics for `interlex.kz`.
 - Added `next/script` Google tag loading to `interlex/src/app/layout.tsx`
 - Scoped the analytics snippet to the exact resolved request host `interlex.kz`
 - Kept other hosts, including `interlex.ge` and staging hosts, without this analytics payload
+- Switched both analytics scripts to `beforeInteractive` so the tag is injected into the initial HTML document
 
 ### Evidence
 - `interlex/src/app/layout.tsx` now resolves request host and conditionally injects measurement ID `G-0PB5VDR3F9`

@@ -26,6 +26,7 @@ Session owner: `Codex`
 - Added cross-links between `/projects` and the Kazakhstan / Georgia jurisdiction pages
 - Replaced placeholder contact phone numbers with direct WhatsApp links for Kazakhstan and Georgia
 - Added Google Analytics `gtag` to the root layout for the exact production host `interlex.kz`
+- Adjusted the Google Analytics script strategy to `beforeInteractive` so validators can see the tag in the initial document
 - Added `docs/project-inventory.md` as a working register of project directions from `docs/spec` with docs-priority and site-status fields
 - Latest repository head is `9341cd2`
 
