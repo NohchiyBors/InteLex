@@ -15,6 +15,7 @@
 - [x] Add a dedicated `/projects` page and expose it in the shared navigation
 - [x] Add cross-links between `/projects` and the Kazakhstan / Georgia jurisdiction pages
 - [x] Replace the placeholder contact phone lines with direct WhatsApp links for Kazakhstan and Georgia
+- [x] Compile a repository-level project inventory from `docs/spec` with documentation priorities and current site-status markers
 
 ## Next Actions
 - [ ] Restart the Coolify deploys for `interlex` on `host` and `hostkz`

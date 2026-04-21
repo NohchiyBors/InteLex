@@ -34,6 +34,7 @@
 - A dedicated `/projects` page now consolidates representative project tracks and country-specific investment-project tracks
 - The projects and jurisdiction pages now cross-link so country-specific investment content and the aggregate projects route reinforce each other
 - The contacts page now uses direct WhatsApp links for the Kazakhstan and Georgia contact numbers instead of placeholder phone lines
+- `docs/project-inventory.md` now consolidates the project directions described in `docs/spec` and maps them to current site implementation status
 
 ## Known Follow-up Items
 - `main` now includes the image/runtime fixes through commit `9341cd2`

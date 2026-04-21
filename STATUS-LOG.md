@@ -178,3 +178,18 @@ Direct WhatsApp contact links for the two jurisdiction desks.
 
 ### Open
 - Re-run build after the WhatsApp contact update
+
+### Item
+Repository-level inventory of project directions from the local specifications.
+
+### Completed
+- Compiled a dedicated `docs/project-inventory.md` register from `docs/spec`
+- Mapped each project direction to the launch-priority model used in the specifications (`P0`, `P1`, `P2`, or not explicit)
+- Added a second status dimension for actual current site implementation (`Implemented`, `Partial`, `Not implemented`)
+- Separated core project tracks, package-style offers, case-study/proof items, and explicit status-like entities such as zone statuses
+
+### Evidence
+- `docs/project-inventory.md` now lists project tracks, descriptions, docs priorities, and site statuses
+
+### Open
+- Decide whether this inventory should remain a markdown reference or be converted into structured data for site/admin use
