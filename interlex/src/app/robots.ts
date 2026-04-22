@@ -8,6 +8,10 @@ export const dynamic = "force-dynamic";
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const headerStore = await headers();
   const host = resolveRequestHost(headerStore);
+  const sitemap =
+    host && !isStagingHost(host)
+      ? `https://${host}/sitemap.xml`
+      : undefined;
 
   if (isStagingHost(host)) {
     return {
@@ -28,5 +32,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         disallow: ["/api/"],
       },
     ],
+    sitemap,
   };
 }

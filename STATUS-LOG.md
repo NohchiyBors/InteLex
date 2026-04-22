@@ -2,6 +2,41 @@
 
 ## 2026-04-21
 
+## 2026-04-22
+
+### Item
+Initial SEO planning pass for `InterLex`.
+
+### Completed
+- Reviewed the current project status files before adding a new planning artifact
+- Inspected the current Next.js SEO baseline in the app layout, page metadata, and `robots`
+- Saved a dedicated SEO roadmap to `docs/seo-plan.md`
+- Recorded the new SEO planning artifact in `TODO.md`, `MEMORY.md`, and `PROJECT-RESUME.md`
+- Added a permanent repository rule in `AGENTS.md` requiring `interlex/src/app/sitemap.ts` to be updated whenever a new indexable page or route is added
+- Duplicated the sitemap maintenance rule in `interlex/AGENTS.md` so the app-level instructions carry the same requirement
+- Added the `StatusProject` decision rules, template paths, and session workflow directly into the root `AGENTS.md`
+- Added an explicit repository rule to avoid duplication and contradictions between instruction sources
+- Added `interlex/src/app/sitemap.ts` for the public route inventory and linked `robots.txt` to `/sitemap.xml`
+
+### Evidence
+- `docs/seo-plan.md` now defines the SEO plan across technical SEO, metadata, schema, internal linking, and content expansion
+- Root status files now reference the SEO roadmap as a follow-up work item
+- `AGENTS.md` now explicitly treats sitemap maintenance as mandatory when new indexable pages are introduced
+- `interlex/AGENTS.md` now includes a local SEO rules block with the same sitemap maintenance requirement
+- `AGENTS.md` now contains a dedicated `StatusProject Rules` section with the workflow and source template references
+- `AGENTS.md` now explicitly tells future updates to prefer one source of truth and reconcile overlapping rules before adding new ones
+- `interlex/src/app/sitemap.ts` now returns URLs for the static marketing routes and `/services/[slug]`
+- `interlex/src/app/robots.ts` now advertises the host-specific sitemap URL on production hosts
+- Local verification on 2026-04-22 confirmed `.kz` and `.ge` hosts both render `robots.txt` with the matching public sitemap URL
+- Local verification on 2026-04-22 confirmed `sitemap.xml` returns the core routes and service detail routes on both production hosts
+
+### Open
+- The SEO plan is not implemented yet in code
+- Public production verification for `sitemap.xml` still needs to happen after deploy
+- Canonical URLs, page-level `hreflang`, and structured data still need to be built
+
+## 2026-04-21
+
 ### Item
 Host-specific Google Analytics for `interlex.kz`.
 

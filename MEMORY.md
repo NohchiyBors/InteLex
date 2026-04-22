@@ -13,8 +13,15 @@
 - `ka` falls back to `en`
 - Site remains a service-catalog website, not a landing-page reframing
 - `docs/spec` is no longer tracked in git and should be treated as a local reference archive, not a deployment/runtime dependency
+- Whenever a new indexable page or route is added, `interlex/src/app/sitemap.ts` must be updated in the same task
+- The same sitemap-update rule is duplicated in `interlex/AGENTS.md` so it applies directly inside the Next.js app scope
+- `AGENTS.md` now explicitly contains the `StatusProject` operating rules and source template paths, not only the session-level instruction
+- Project rules should avoid duplication and contradictions across `AGENTS.md`, `interlex/AGENTS.md`, and the `StatusProject` files
 
 ## Current Implementation Facts
+- `docs/seo-plan.md` now stores the first-pass SEO roadmap for technical SEO, metadata, schema, internal linking, and content expansion
+- `interlex/src/app/sitemap.ts` now generates host-aware sitemap output for the core static routes and all service detail pages
+- `interlex/src/app/robots.ts` now exposes a host-aware `sitemap` URL for production hosts
 - Google Analytics `gtag` is wired in the root app layout with `beforeInteractive` and exact host mapping:
 - `interlex.kz` -> `G-0PB5VDR3F9`
 - `interlex.ge` -> `G-ZR71QDW2FB`
@@ -40,6 +47,8 @@
 - `docs/project-inventory.md` now consolidates the project directions described in `docs/spec` and maps them to current site implementation status
 
 ## Known Follow-up Items
+- The new SEO roadmap still needs to be translated into concrete implementation tickets and code changes
+- Public production verification for `sitemap.xml` still needs to happen after deploy
 - `main` now includes the image/runtime fixes through commit `9341cd2`
 - Coolify redeploy still needs to be triggered and verified after the latest push
 - Coolify runtime mode should be checked to confirm it uses the root `Dockerfile` or an equivalent copy step for `public`

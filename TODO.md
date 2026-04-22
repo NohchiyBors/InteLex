@@ -1,6 +1,10 @@
 # TODO: InterLex
 
 ## Current Focus
+- [x] Add `interlex/src/app/sitemap.ts` and expose it from `robots.txt`
+- [x] Add a permanent project rule: update `interlex/src/app/sitemap.ts` whenever a new indexable page or route is added
+- [x] Duplicate the sitemap-update rule in `interlex/AGENTS.md` and reflect it in the StatusProject files
+- [x] Save the initial SEO optimisation plan as a project document in `docs/seo-plan.md`
 - [x] Add Google Analytics `gtag` for production hosts `interlex.kz` and `interlex.ge`
 - [x] Remove Material Symbols dependency from `interlex/src/app/layout.tsx`
 - [x] Replace all `material-symbols-outlined` usages with local SVG React icons
@@ -19,6 +23,12 @@
 - [x] Compile a repository-level project inventory from `docs/spec` with documentation priorities and current site-status markers
 
 ## Next Actions
+- [ ] Review `docs/seo-plan.md` and convert it into an implementation backlog for technical SEO changes
+- [ ] Verify public `https://interlex.kz/sitemap.xml` and `https://interlex.ge/sitemap.xml` after deploy
+- [ ] Review whether the initial sitemap alternates should stay `ru/en`-only or later include explicit fallback-locale handling
+- [ ] Implement canonical URLs and page-level `hreflang` / alternates for the two production domains
+- [ ] Design a shared metadata helper so page SEO is consistent across services, jurisdictions, and projects
+- [ ] Add structured data for `Organization`, `WebSite`, services, breadcrumbs, and FAQ where applicable
 - [ ] Restart the Coolify deploys for `interlex` on `host` and `hostkz`
 - [ ] Verify after redeploy that `https://interlex.kz/` serves hero images and brand assets correctly
 - [ ] Verify that Coolify uses the root `Dockerfile` or an equivalent runtime that keeps `interlex/public` available
@@ -27,6 +37,10 @@
 - [ ] Align `README.md` and root `AGENTS.md` with the new local-only status of `docs/spec`
 
 ## Verification Notes
+- [x] Local `Host: interlex.kz` `robots.txt` includes `Sitemap: https://interlex.kz/sitemap.xml`
+- [x] Local `Host: interlex.ge` `robots.txt` includes `Sitemap: https://interlex.ge/sitemap.xml`
+- [x] Local `Host: interlex.kz` `sitemap.xml` renders core routes and `/services/[slug]` URLs on the `.kz` domain
+- [x] Local `Host: interlex.ge` `sitemap.xml` renders core routes and `/services/[slug]` URLs on the `.ge` domain
 - [x] `/` with `Host: interlex.kz` returns `lang=ru`
 - [x] `/` with `Host: interlex.ge` returns `lang=en`
 - [x] Rendered HTML for `Host: interlex.kz` includes `G-0PB5VDR3F9`
@@ -36,7 +50,7 @@
 - [x] `/kz`, `/ge`, `/services`, `/packages` return `200`
 - [x] Language switcher `<select>` and mobile menu trigger are present in rendered HTML
 - [x] Standalone runtime returns `200` for `/brand/IL_logo_dark.svg`, `/images/hero/home-hero.jpg`, and `/_next/image?...`
-- [ ] Re-run build after the new content, projects routing, cross-links, and WhatsApp contact updates
+- [x] Re-run build after the new content, projects routing, cross-links, WhatsApp contact updates, and sitemap changes
 
 ## Open Risks
 - [ ] No browser-automation visual pass was run for responsive layout, only HTTP smoke checks
