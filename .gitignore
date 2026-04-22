@@ -34,5 +34,5 @@ Desktop.ini
 /design/stitch-exports/*
 !/design/stitch-exports/download_screens.ps1
 
-# Спецификации проекта локально исключаем из новых git-изменений
-/docs/spec/
+# Документация репозитория (спеки, деплой, планы) — только локально / вне git
+/docs/
